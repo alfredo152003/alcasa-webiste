@@ -1,0 +1,40 @@
+---
+interface Props {
+  name: string;
+  type: string;
+  capacity: number;
+  diameter: number;
+  height: number;
+  air_system: boolean;
+}
+
+const {name, type, capacity, diameter, height, air_system = false} = Astro.props;
+---
+<div class="bg-[#FAFAFA] rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#78ab2c]/30 hover:cursor-pointer transition-all duration-300 overflow-hidden group reveal opacity-0 translate-y-12">
+  <div class="bg-[#49494b] p-6 text-white relative overflow-hidden">
+    <h3 class="text-2xl font-bold relative z-10">{name}</h3>
+    <p class="text-[#78ab2c] font-semibold text-sm mt-1 relative z-10">{type}</p>
+  </div>
+  <div class="p-6 space-y-4">
+    <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+      <span class="text-gray-500 text-sm">Capacidad Estimada</span>
+      <span class="font-bold text-[#49494b]">{capacity} TM</span>
+    </div>
+    <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+      <span class="text-gray-500 text-sm">Diámetro Real</span>
+      <span class="font-bold text-[#49494b]">{diameter} m</span>
+    </div>
+    <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+      <span class="text-gray-500 text-sm">Altura Total</span>
+      <span class="font-bold text-[#49494b]">{height} m</span>
+    </div>
+    <div class="flex justify-between items-center">
+      <span class="text-gray-500 text-sm">Sistema de Aireación</span>
+        {
+            air_system 
+                ? <span class="font-bold text-[#78ab2c]">Incluido</span>
+                : <span class="font-bold text-red-500">No Incluido</span>
+        }
+    </div>
+  </div>
+</div>

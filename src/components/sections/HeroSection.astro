@@ -1,0 +1,108 @@
+<section class="relative w-full min-h-screen flex flex-col overflow-hidden">
+
+  <!-- ── Fondo: imagen con filtro oscuro ── -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="/images/hero-fallback.jpg"
+      alt="Instalaciones ALCASA"
+      class="w-full h-full object-cover"
+    />
+  </div>
+  <!-- Overlay oscuro para legibilidad -->
+  <div class="absolute inset-0 z-10 bg-[#1a1c1e]/75"></div>
+  <!-- Gradiente sutil de izquierda a derecha para separar video del texto -->
+  <div class="absolute inset-0 z-10 bg-gradient-to-r from-black/30 via-transparent to-black/50"></div>
+
+  <!-- ── Contenido principal: video (izq) + texto (der) ── -->
+  <div class="relative z-20 flex-1 flex items-center">
+    <div class="container mx-auto px-6 pt-28 pb-20 md:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+        <!-- ── Izquierda: Video ── -->
+        <div class="flex items-center justify-center order-2 lg:order-1">
+          <div class="w-full max-w-[580px] rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.6)] border border-white/10 aspect-video bg-black">
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              controls
+              class="w-full h-full object-cover"
+            >
+              <source src="/videos/hero-background.mp4" type="video/mp4" />
+              <img src="/images/hero-fallback.jpg" alt="Instalaciones ALCASA" class="w-full h-full object-cover" />
+            </video>
+          </div>
+        </div>
+
+        <!-- ── Derecha: Texto ── -->
+        <div class="flex flex-col items-start text-left text-[#FAFAFA] order-1 lg:order-2">
+
+          <span class="mb-5 px-4 py-1.5 rounded-full border border-[#78ab2c]/50 bg-[#78ab2c]/10 text-sm font-semibold tracking-wider uppercase backdrop-blur-sm">
+            ALCASA El Salvador
+          </span>
+
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+            Almacenamiento a Gran Escala en <span class="text-[#78ab2c]">Silos y Bodegas</span>
+          </h1>
+
+          <p class="text-lg md:text-xl mb-10 max-w-lg text-gray-200 font-light leading-relaxed">
+            Infraestructura de primer nivel para el manejo y conservación de granos básicos por toneladas métricas.
+          </p>
+
+          <a
+            href="/instalaciones"
+            class="group inline-flex items-center justify-center gap-2 bg-[#e67e00] text-[#FAFAFA] px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:bg-[#c96e00] hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(230,126,0,0.35)]"
+          >
+            Conocer Instalaciones
+            <i class="bi bi-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Barra inferior de stats ── -->
+  <div class="relative z-20 w-full border-t border-white/10 bg-black/30 backdrop-blur-md">
+    <div class="container mx-auto px-6 py-5">
+      <div class="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+
+        <!-- Seguridad Garantizada -->
+        <div class="flex items-center justify-center gap-4 py-4 sm:py-0 sm:px-6">
+          <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-[#78ab2c]/20 flex items-center justify-center text-[#78ab2c]">
+            <i class="bi bi-shield-check text-2xl leading-none"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm uppercase tracking-wide text-white">Seguridad Garantizada</h3>
+            <p class="text-xs text-gray-300 mt-0.5">Control de plagas y humedad</p>
+          </div>
+        </div>
+
+        <!-- Capacidad Masiva -->
+        <div class="flex items-center justify-center gap-4 py-4 sm:py-0 sm:px-6">
+          <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-[#e67e00]/20 flex items-center justify-center text-[#e67e00]">
+            <i class="bi bi-boxes text-2xl leading-none"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm uppercase tracking-wide text-white">Capacidad Masiva</h3>
+            <p class="text-xs text-gray-300 mt-0.5">Atención por toneladas métricas</p>
+          </div>
+        </div>
+
+        <!-- Ubicación Estratégica -->
+        <div class="flex items-center justify-center gap-4 py-4 sm:py-0 sm:px-6">
+          <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-[#78ab2c]/20 flex items-center justify-center text-[#78ab2c]">
+            <i class="bi bi-geo-alt-fill text-2xl leading-none"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm uppercase tracking-wide text-white">Ubicación Estratégica</h3>
+            <p class="text-xs text-gray-300 mt-0.5">Operaciones en El Salvador</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>

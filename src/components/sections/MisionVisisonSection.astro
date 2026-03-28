@@ -1,0 +1,97 @@
+---
+import MisionVisionCard from "./MisionVisionCard.astro";
+---
+
+<section class="py-24 bg-[#FAFAFA] relative overflow-hidden" id="identidad-corporativa">
+
+  <div class="container mx-auto px-6 max-w-7xl relative z-10">
+    
+    <div class="mb-16 reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+      <span class="text-[#e67e00] font-bold tracking-widest uppercase text-sm mb-2 block">Filosofía ALCASA</span>
+      <h2 class="text-3xl md:text-5xl font-bold text-[#49494b] tracking-tight">Identidad Corporativa</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <MisionVisionCard 
+            title="Nuestra Misión" 
+            description="Brindar servicios con estándares de calidad en el manejo de cereales y otras cargas, aplicando nuestro código de ética en los procesos de manera eficiente permitiendo la rentabilidad en cada servicio."
+            type="mission"
+        />
+
+        <MisionVisionCard 
+            title="Nuestra Visión" 
+            description="Mantener el liderazgo del manejo en las importaciones de cereales que llegan a través del puerto de Acajutla."
+            type="vision"
+        />
+    </div>
+
+    <div class="mb-12 reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-[400ms]">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-bold text-[#49494b]">Valores Corporativos</h3>
+      </div>
+      
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="bg-white px-6 py-3 rounded-full border border-gray-200 shadow-sm text-[#49494b] font-semibold hover:border-[#78ab2c] hover:text-[#78ab2c] transition-colors cursor-default">
+          ✓ Respeto
+        </div>
+        <div class="bg-white px-6 py-3 rounded-full border border-gray-200 shadow-sm text-[#49494b] font-semibold hover:border-[#e67e00] hover:text-[#e67e00] transition-colors cursor-default">
+          ✓ Compromiso
+        </div>
+        <div class="bg-white px-6 py-3 rounded-full border border-gray-200 shadow-sm text-[#49494b] font-semibold hover:border-[#78ab2c] hover:text-[#78ab2c] transition-colors cursor-default">
+          ✓ Transparencia
+        </div>
+        <div class="bg-white px-6 py-3 rounded-full border border-gray-200 shadow-sm text-[#49494b] font-semibold hover:border-[#e67e00] hover:text-[#e67e00] transition-colors cursor-default">
+          ✓ Confiabilidad
+        </div>
+        <div class="bg-white px-6 py-3 rounded-full border border-gray-200 shadow-sm text-[#49494b] font-semibold hover:border-[#78ab2c] hover:text-[#78ab2c] transition-colors cursor-default">
+          ✓ Equidad
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-[#49494b] rounded-3xl p-8 md:p-12 text-white shadow-xl relative overflow-hidden reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-[600ms] group">
+      
+      <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[#78ab2c]/20 rounded-full blur-3xl group-hover:bg-[#78ab2c]/30 transition-colors duration-700 pointer-events-none"></div>
+      <div class="absolute -left-10 -top-10 w-48 h-48 bg-[#e67e00]/20 rounded-full blur-3xl group-hover:bg-[#e67e00]/30 transition-colors duration-700 pointer-events-none"></div>
+      
+      <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center md:items-start">
+        <div class="shrink-0 bg-white/10 p-4 rounded-2xl border border-white/20 backdrop-blur-sm">
+            <i class="bi bi-patch-check text-4xl text-[#78ab2c]"></i>
+        </div>
+        <div>
+          <h3 class="text-3xl font-bold text-white mb-4">Política de Calidad</h3>
+          <p class="text-gray-300 leading-relaxed text-lg font-light text-balance italic">
+            "ALCASA se dedica a brindar servicios de manejo de cereales, harinas y otros tipos de carga comprometiéndose a satisfacer los requerimientos de los clientes."
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Quita las clases que ocultan el elemento
+          entry.target.classList.remove('opacity-0', 'translate-y-12', 'translate-y-8');
+          // Añade la clase que lo hace visible
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          // Deja de observar para que la animación no se repita
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15 
+    });
+
+    reveals.forEach(reveal => {
+      observer.observe(reveal);
+    });
+  });
+</script>
