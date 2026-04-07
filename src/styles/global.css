@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme {
+  --font-archivo: "Archivo Variable", sans-serif;
+
+  --color-alcasa-green: #78ab2c;
+  --color-alcasa-orange: #e67e00;
+  --color-alcasa-dark: #49494b;
+  --color-alcasa-light: #FAFAFA;
+}

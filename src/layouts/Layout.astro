@@ -3,6 +3,7 @@ import "../styles/global.css";
 import '@fontsource-variable/archivo';
 import Navbar from "../components/Navbar.astro";
 import Sidebar from "../components/Sidebar.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
@@ -26,5 +27,6 @@ const { title, description = "Mi landing page creada con Astro" } = Astro.props;
     <Navbar />
     <Sidebar />
     <slot />
+    <Footer />
   </body>
 </html>
