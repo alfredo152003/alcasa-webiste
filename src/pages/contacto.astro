@@ -1,0 +1,339 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contacto | ALCASA El Salvador">
+
+  <main class="bg-alcasa-light text-alcasa-dark min-h-screen overflow-hidden">
+
+    <!-- ══════════════════════════════════════════════════════════════
+         HERO · Parallax (mismo lenguaje que servicios.astro)
+    ═══════════════════════════════════════════════════════════════ -->
+    <section
+      class="relative w-full h-[60vh] min-h-[480px] flex items-center justify-center bg-fixed bg-center bg-cover"
+      style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop');"
+    >
+      <div class="absolute inset-0 bg-alcasa-dark/85 mix-blend-multiply"></div>
+
+      <!-- Brillos sutiles -->
+      <div class="absolute -left-24 top-1/3 w-72 h-72 bg-alcasa-green/25 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -right-24 bottom-1/4 w-80 h-80 bg-alcasa-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 text-center px-6 max-w-4xl mx-auto reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+
+        <span class="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-alcasa-green/60 bg-alcasa-green/15 text-alcasa-green text-xs font-bold tracking-[0.25em] uppercase backdrop-blur-sm">
+          <span class="w-1.5 h-1.5 bg-alcasa-green rounded-full animate-pulse"></span>
+          Hablemos de su proyecto
+        </span>
+
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.05] drop-shadow-lg">
+          Contacto <span class="text-alcasa-green">ALCASA</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-200/90 max-w-2xl mx-auto font-light leading-relaxed">
+          Nuestro equipo comercial atiende cotizaciones a la medida de su operación, para almacenaje, manejo y acondicionamiento de granel sólido.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SECCIÓN 01 · Formulario + Información
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-24 md:py-32 bg-alcasa-light relative" id="formulario">
+
+      <!-- Decoraciones de fondo -->
+      <div class="absolute -left-20 top-32 w-72 h-72 bg-alcasa-green/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute right-0 bottom-20 w-80 h-80 bg-alcasa-orange/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="container mx-auto px-6 max-w-7xl relative">
+        <!-- Layout principal · flex (form-izquierda · info-derecha) -->
+        <div class="flex flex-col lg:flex-row gap-6 lg:gap-8">
+
+          <!-- ───── Información · ~42% ───── -->
+          <aside class="lg:flex-[5] min-w-0 flex flex-col gap-6 reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-[150ms]">
+
+            <!-- Card oscura · canales prioritarios -->
+            <div class="relative bg-alcasa-dark text-alcasa-light rounded-2xl p-8 overflow-hidden">
+
+              <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-alcasa-orange/25 rounded-full blur-3xl pointer-events-none"></div>
+              <div class="absolute -left-12 -top-12 w-52 h-52 bg-alcasa-green/15 rounded-full blur-3xl pointer-events-none"></div>
+
+              <div class="relative z-10">
+                <div class="flex items-center gap-3 mb-6 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-orange">
+                  <span class="block w-8 h-px bg-alcasa-orange"></span>
+                  <span>Canales directos</span>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white mb-2 tracking-tight">Atención comercial</h3>
+                <p class="text-gray-300 font-light leading-relaxed mb-8 text-sm">
+                  Para consultas inmediatas, utilice cualquiera de estos canales en horario de oficina.
+                </p>
+
+                <ul class="flex flex-col gap-3">
+                  <li>
+                    <a
+                      href="tel:+50322220000"
+                      class="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-colors duration-500"
+                    >
+                      <span class="flex-shrink-0 w-10 h-10 rounded-lg bg-alcasa-green/20 text-alcasa-green flex items-center justify-center group-hover:bg-alcasa-green group-hover:text-white transition-colors duration-500">
+                        <i class="bi bi-telephone-fill text-base leading-none"></i>
+                      </span>
+                      <div class="min-w-0 flex-1">
+                        <p class="text-[0.65rem] font-bold tracking-[0.25em] uppercase text-white/55 mb-0.5">Teléfono</p>
+                        <p class="text-sm font-bold text-white tabular-nums tracking-tight">+503 2222-0000</p>
+                      </div>
+                      <i class="bi bi-arrow-up-right text-white/30 group-hover:text-white group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300"></i>
+                    </a>
+                  </li>
+
+                  <!-- <li>
+                    <a
+                      href="https://wa.me/50322220000"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-colors duration-500"
+                    >
+                      <span class="flex-shrink-0 w-10 h-10 rounded-lg bg-alcasa-green/20 text-alcasa-green flex items-center justify-center group-hover:bg-alcasa-green group-hover:text-white transition-colors duration-500">
+                        <i class="bi bi-whatsapp text-base leading-none"></i>
+                      </span>
+                      <div class="min-w-0 flex-1">
+                        <p class="text-[0.65rem] font-bold tracking-[0.25em] uppercase text-white/55 mb-0.5">WhatsApp</p>
+                        <p class="text-sm font-bold text-white tracking-tight">Chat directo</p>
+                      </div>
+                      <i class="bi bi-arrow-up-right text-white/30 group-hover:text-white group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300"></i>
+                    </a>
+                  </li> -->
+
+                  <li>
+                    <a
+                      href="mailto:contacto@alcasa.com.sv"
+                      class="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-colors duration-500"
+                    >
+                      <span class="flex-shrink-0 w-10 h-10 rounded-lg bg-alcasa-orange/20 text-alcasa-orange flex items-center justify-center group-hover:bg-alcasa-orange group-hover:text-white transition-colors duration-500">
+                        <i class="bi bi-envelope-fill text-base leading-none"></i>
+                      </span>
+                      <div class="min-w-0 flex-1">
+                        <p class="text-[0.65rem] font-bold tracking-[0.25em] uppercase text-white/55 mb-0.5">Correo</p>
+                        <p class="text-sm font-bold text-white tracking-tight break-all">contacto@alcasa.com.sv</p>
+                      </div>
+                      <i class="bi bi-arrow-up-right text-white/30 group-hover:text-white group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Card · ubicación -->
+            <div class="bg-white rounded-2xl border border-gray-100 p-6 hover:border-alcasa-green/40 hover:shadow-[0_15px_35px_-12px_rgba(120,171,44,0.2)] transition-all duration-500">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-alcasa-green/10 flex items-center justify-center text-alcasa-green flex-shrink-0">
+                  <i class="bi bi-geo-alt-fill text-xl leading-none"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/55 mb-1">Ubicación</p>
+                  <p class="text-base font-bold text-alcasa-dark tracking-tight leading-snug">
+                    Acajutla, El Salvador
+                  </p>
+                  <p class="text-xs text-alcasa-dark/60 mt-1">
+                    Planta ALCASA, Zona Industrial Puerto de Acajutla, Sonsonate, El Salvador, C.A.  
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card · horario -->
+            <div class="bg-white rounded-2xl border border-gray-100 p-6 hover:border-alcasa-orange/40 hover:shadow-[0_15px_35px_-12px_rgba(230,126,0,0.2)] transition-all duration-500">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-alcasa-orange/10 flex items-center justify-center text-alcasa-orange flex-shrink-0">
+                  <i class="bi bi-clock-fill text-xl leading-none"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/55 mb-1">Horario</p>
+                  <p class="text-base font-bold text-alcasa-dark tracking-tight leading-snug">
+                    Lunes a Viernes
+                  </p>
+                  <p class="text-xs text-alcasa-dark/60 mt-1 tabular-nums">8:00 AM — 5:00 PM</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card · capacidad (stat) -->
+            <div class="rounded-2xl border border-dashed border-alcasa-dark/20 bg-white/60 backdrop-blur-sm p-6">
+              <p class="text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/55 mb-2">Capacidad instalada</p>
+              <p class="text-3xl md:text-4xl font-bold text-alcasa-dark tabular-nums tracking-tight leading-none">
+                144,000<span class="text-base font-medium text-alcasa-dark/60 ml-1.5">tn</span>
+              </p>
+              <p class="text-xs text-alcasa-dark/60 mt-2 leading-relaxed">
+                Entre silos de concreto, bodegas techadas y patios abiertos.
+              </p>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SECCIÓN 02 · Mapa · Cómo llegar
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-24 md:py-32 bg-white relative overflow-hidden" id="ubicacion">
+
+      <div class="absolute right-0 top-40 w-80 h-80 bg-alcasa-green/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute left-10 bottom-20 w-72 h-72 bg-alcasa-orange/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="container mx-auto px-6 max-w-7xl relative">
+
+        <!-- Encabezado · flex (sin grid) -->
+        <div class="mb-16 flex flex-col lg:flex-row lg:justify-between gap-8">
+
+          <div class="lg:max-w-2xl reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+            <span class="inline-block mb-5 px-4 py-1.5 rounded-full border border-alcasa-orange/50 bg-alcasa-orange/10 text-alcasa-orange text-sm font-bold tracking-wider uppercase backdrop-blur-sm">
+              Cómo llegar
+            </span>
+
+            <h2 class="text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-alcasa-dark tracking-tight leading-[1.05]">
+              Estamos en <span class="text-alcasa-orange">Acajutla</span>, junto al puerto.
+            </h2>
+
+            <p class="mt-6 text-lg text-alcasa-dark/70 font-light leading-relaxed">
+              Ubicados estratégicamente en el recinto fiscal de Acajutla, con conexión directa vía banda transportadora interconectada al puerto.
+            </p>
+          </div>
+
+          <div class="flex-shrink-0 reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-[150ms]">
+            <a
+              href="https://maps.app.goo.gl/RVaoqCkFjCQbmtiKA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex items-center gap-4 text-sm font-semibold text-alcasa-dark border border-alcasa-dark/20 px-6 py-4 rounded-xl bg-white/40 backdrop-blur-sm hover:border-alcasa-green hover:text-alcasa-green hover:bg-white transition-all duration-300 whitespace-nowrap"
+            >
+              <i class="bi bi-geo-alt"></i>
+              <span>Abrir en Google Maps</span>
+              <span class="relative w-7 h-px bg-current transition-all duration-300 group-hover:w-9">
+                <span class="absolute -right-px -top-[3px] w-2 h-2 border-r border-t border-current rotate-45"></span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-[200ms]">
+
+          <article class="group relative bg-white rounded-3xl border border-gray-100 shadow-[0_25px_50px_-15px_rgba(73,73,75,0.12)] hover:shadow-[0_35px_60px_-15px_rgba(73,73,75,0.2)] hover:-translate-y-0.5 transition-all duration-700 ease-out overflow-hidden">
+
+            <!-- Acento superior -->
+            <div class="h-1 w-full bg-alcasa-green"></div>
+
+            <!-- Header del card -->
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-5 sm:px-7 py-5 border-b border-gray-100">
+
+              <div class="flex items-center gap-4 min-w-0">
+                <span class="flex-shrink-0 w-11 h-11 rounded-xl bg-alcasa-green/10 text-alcasa-green flex items-center justify-center group-hover:bg-alcasa-green group-hover:text-white transition-colors duration-500">
+                  <i class="bi bi-geo-alt-fill text-xl leading-none"></i>
+                </span>
+                <div class="min-w-0">
+                  <p class="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-alcasa-dark/55 mb-0.5">Sede principal</p>
+                  <p class="text-base sm:text-lg font-bold text-alcasa-dark tracking-tight leading-tight truncate">ALCASA · Acajutla, El Salvador</p>
+                </div>
+              </div>
+
+              <!-- Indicador de mapa interactivo -->
+              <div class="flex-shrink-0 flex items-center gap-2">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-alcasa-green opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-alcasa-green"></span>
+                </span>
+                <span class="text-[0.6rem] sm:text-[0.65rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/55">Mapa interactivo</span>
+              </div>
+            </div>
+
+            <!-- Iframe responsive con aspect ratio adaptable -->
+            <div class="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] bg-alcasa-dark">
+              <iframe
+                src="https://www.google.com/maps?q=ALCASA+S.A+de+C.V./@13.5746475,-89.8321037,17z/data=!3m1!4b1!4m6!3m5!1s0x8f62b2ecf79edacd:0x7af69d6fb0de99cf!8m2!3d13.5746475!4d-89.8295288!16s%2Fg%2F11c6w0yrj4?entry=ttu&g_ep=EgoyMDI2MDQyOC4wIKXMDSoASAFQAw%3D%3D&output=embed"
+                style="border:0;"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación de ALCASA en Acajutla, El Salvador"
+                class="absolute inset-0 w-full h-full"
+              ></iframe>
+            </div>
+
+            <!-- Footer del card · meta-stats -->
+            <div class="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-gray-100 border-t border-gray-100">
+              <div class="flex-1 px-5 sm:px-7 py-5">
+                <p class="text-[0.6rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/50 mb-1">Capacidad</p>
+                <p class="text-base md:text-lg font-bold text-alcasa-dark tabular-nums tracking-tight leading-none">
+                  144,000<span class="text-xs font-medium text-alcasa-dark/55 ml-1.5">tn</span>
+                </p>
+              </div>
+              <div class="flex-1 px-5 sm:px-7 py-5">
+                <p class="text-[0.6rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/50 mb-1">Régimen</p>
+                <p class="text-base md:text-lg font-bold text-alcasa-dark tracking-tight leading-none">Recinto fiscal</p>
+              </div>
+              <div class="flex-1 px-5 sm:px-7 py-5">
+                <p class="text-[0.6rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/50 mb-1">Acceso al puerto</p>
+                <p class="text-base md:text-lg font-bold text-alcasa-dark tracking-tight leading-none">Muelle B ¾</p>
+              </div>
+            </div>
+
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Semilla para clases que se aplican vía JS -->
+  <div class="hidden opacity-100 translate-y-0 translate-x-0"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove(
+              'opacity-0',
+              'translate-y-8', 'translate-y-10', 'translate-y-12',
+              '-translate-x-12', 'translate-x-12'
+            );
+            entry.target.classList.add('opacity-100', 'translate-y-0', 'translate-x-0');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.12
+      });
+
+      reveals.forEach(reveal => observer.observe(reveal));
+
+      // ── Manejo del formulario (placeholder para integración futura) ──
+      const form = document.getElementById('contact-form');
+      const success = document.getElementById('form-success');
+
+      if (form instanceof HTMLFormElement && success) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          success.classList.remove('hidden');
+          form.reset();
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+          setTimeout(() => {
+            success.classList.add('hidden');
+          }, 8000);
+        });
+      }
+    });
+  </script>
+
+</Layout>
