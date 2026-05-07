@@ -1,9 +1,11 @@
 ---
+import { withBase } from "../utils/url";
+
 const navLinks = [
-  { label: 'Inicio',        href: '/' },
-  { label: 'Servicios',     href: '/servicios' },
-  { label: 'Instalaciones', href: '/instalaciones' },
-  { label: 'Contacto',      href: '/contacto' },
+  { label: 'Inicio',        href: withBase('/') },
+  { label: 'Servicios',     href: withBase('/servicios') },
+  { label: 'Instalaciones', href: withBase('/instalaciones') },
+  { label: 'Contacto',      href: withBase('/contacto') },
 ];
 
 const currentYear = new Date().getFullYear();
@@ -25,7 +27,7 @@ const currentYear = new Date().getFullYear();
 
       <!-- Brand column -->
       <div class="lg:col-span-1">
-        <a href="/" class="inline-block mb-6 group">
+        <a href={withBase('/')} class="inline-block mb-6 group">
           <span class="text-3xl font-bold tracking-tight text-white group-hover:text-alcasa-green transition-colors duration-300 font-archivo">ALCASA</span>
         </a>
         <p class="text-gray-400 text-sm leading-relaxed mb-8 max-w-xs">
@@ -65,19 +67,19 @@ const currentYear = new Date().getFullYear();
         <h4 class="text-sm font-bold tracking-widest uppercase text-alcasa-green mb-6">Servicios</h4>
         <ul class="flex flex-col space-y-3">
           <li>
-            <a href="/servicios#manejo-almacenaje" class="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Manejo y Almacenaje</a>
+            <a href={withBase('/servicios#manejo-almacenaje')} class="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Manejo y Almacenaje</a>
           </li>
           <li>
-            <a href="/servicios#administracion" class="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Administración de Descarga</a>
+            <a href={withBase('/servicios#administracion')} class="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Administración de Descarga</a>
           </li>
           <li>
-            <a href="/servicios#acondicionamiento" class="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Acondicionamiento del Grano</a>
+            <a href={withBase('/servicios#acondicionamiento')} class="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Acondicionamiento del Grano</a>
           </li>
           <li>
-            <a href="/instalaciones" class="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Silos Metálicos</a>
+            <a href={withBase('/instalaciones')} class="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Silos Metálicos</a>
           </li>
           <li>
-            <a href="/instalaciones" class="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Bodegas Techadas</a>
+            <a href={withBase('/instalaciones')} class="text-gray-400 hover:text-white transition-colors duration-200 text-sm">Bodegas Techadas</a>
           </li>
         </ul>
       </div>

@@ -1,11 +1,13 @@
 ---
-const { pathname } = Astro.url;
+import { withBase, stripBase } from "../utils/url";
+
+const pathname = stripBase(Astro.url.pathname);
 
 const navLinks = [
-  { label: 'Inicio',        href: '/',              active: pathname === '/' },
-  { label: 'Servicios',     href: '/servicios',     active: pathname.startsWith('/servicios') },
-  { label: 'Instalaciones', href: '/instalaciones', active: pathname.startsWith('/instalaciones') },
-  { label: 'Contacto',      href: '/contacto',      active: pathname.startsWith('/contacto') },
+  { label: 'Inicio',        href: withBase('/'),              active: pathname === '/' },
+  { label: 'Servicios',     href: withBase('/servicios'),     active: pathname.startsWith('/servicios') },
+  { label: 'Instalaciones', href: withBase('/instalaciones'), active: pathname.startsWith('/instalaciones') },
+  { label: 'Contacto',      href: withBase('/contacto'),      active: pathname.startsWith('/contacto') },
 ];
 ---
 

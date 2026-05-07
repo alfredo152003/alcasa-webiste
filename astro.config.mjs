@@ -6,9 +6,12 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
+// El sitio se publica en GitHub Pages bajo el sub-path del nombre del repo.
+// Repo: https://github.com/Alfredo152003/Alcasa-Webiste  →  base: '/Alcasa-Webiste'
 export default defineConfig({
   site: 'https://alfredo152003.github.io',
   base: '/Alcasa-Webiste',
+  trailingSlash: 'ignore',
   server: {
       host: true,
       port: 4321,
