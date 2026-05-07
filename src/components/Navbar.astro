@@ -6,10 +6,10 @@ const { pathname } = Astro.url;
 // El link de Servicios apunta a #servicios (anchor en home), así que lo marcamos
 // activo solo cuando estamos en la raíz "/".
 const navLinks = [
-  { label: 'Inicio',        href: '/',              active: pathname === '/' },
-  { label: 'Servicios',     href: '/servicios',     active: pathname.startsWith('/servicios') },
-  { label: 'Instalaciones', href: '/instalaciones', active: pathname.startsWith('/instalaciones') },
-  { label: 'Contacto',      href: '/contacto',      active: pathname.startsWith('/contacto') },
+  { label: 'Inicio',        href: '/',              active: pathname === import.meta.url },
+  { label: 'Servicios',     href: '/servicios',     active: pathname.startsWith(import.meta.url + '/servicios') },
+  { label: 'Instalaciones', href: '/instalaciones', active: pathname.startsWith(import.meta.url + '/instalaciones') },
+  { label: 'Contacto',      href: '/contacto',      active: pathname.startsWith(import.meta.url + '/contacto') },
 ];
 ---
 

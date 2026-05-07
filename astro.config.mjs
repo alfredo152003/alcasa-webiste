@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://Alfredo152003.github.io',
+  site: 'https://alfredo152003.github.io',
   base: '/Alcasa-Webiste',
   server: {
       host: true,
