@@ -1,0 +1,2 @@
+opencode -s ses_19b4738eeffeztkbVyVoqfVzY0
+claude --resume 27af6224-20be-47a9-93c6-8409f2063198

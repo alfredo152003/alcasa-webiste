@@ -1,10 +1,10 @@
----
+﻿---
 import { withBase } from "../../utils/url";
 ---
 
 <section class="relative w-full min-h-screen flex flex-col overflow-hidden">
 
-  <!-- ── Fondo: imagen con filtro oscuro ── -->
+  {/* ── Fondo: imagen con filtro oscuro ── */}
   <div class="absolute inset-0 z-0">
     <img
       src={withBase('/images/hero-fallback.jpg')}
@@ -12,17 +12,17 @@ import { withBase } from "../../utils/url";
       class="w-full h-full object-cover"
     />
   </div>
-  <!-- Overlay oscuro para legibilidad -->
+  {/* Overlay oscuro para legibilidad */}
   <div class="absolute inset-0 z-10 bg-[#1a1c1e]/75"></div>
-  <!-- Gradiente sutil de izquierda a derecha para separar video del texto -->
+  {/* Gradiente sutil de izquierda a derecha para separar video del texto */}
   <div class="absolute inset-0 z-10 bg-gradient-to-r from-black/30 via-transparent to-black/50"></div>
 
-  <!-- ── Contenido principal: video (izq) + texto (der) ── -->
+  {/* ── Contenido principal: video (izq) + texto (der) ── */}
   <div class="relative z-20 flex-1 flex items-center">
     <div class="container mx-auto px-6 pt-28 pb-20 md:py-24">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-        <!-- ── Izquierda: Video ── -->
+        {/* ── Izquierda: Video ── */}
         <div class="flex items-center justify-center order-2 lg:order-1">
           <div class="w-full max-w-[580px] rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.6)] border border-white/10 aspect-video bg-black">
             <video
@@ -33,24 +33,24 @@ import { withBase } from "../../utils/url";
               controls
               class="w-full h-full object-cover"
             >
-              <source src={withBase('/videos/hero-background.mp4')} type="video/mp4" />
+              <source src={withBase('/videos/hero-background.mp4#t=45')} type="video/mp4" />
               <img src={withBase('/images/hero-fallback.jpg')} alt="Instalaciones ALCASA" class="w-full h-full object-cover" />
             </video>
           </div>
         </div>
 
-        <!-- ── Derecha: Texto ── -->
+        {/* ── Derecha: Texto ── */}
         <div class="flex flex-col items-start text-left text-alcasa-light order-1 lg:order-2">
 
-          <span class="mb-5 px-4 py-1.5 rounded-full border border-alcasa-green/50 bg-alcasa-green/10 text-md font-semibold tracking-wider uppercase backdrop-blur-sm">
+          <span class="mb-5 px-4 py-1.5 rounded-full border border-alcasa-green/50 bg-alcasa-green/10 text-xl font-semibold tracking-wider uppercase backdrop-blur-sm">
             Puerto de Acajutla El Salvador
           </span>
 
-          <h1 class="text-4xl md:text-5xl lg:text-4xl font-bold tracking-tight mb-6 leading-tight">
-              Manejo y Almacenamiento de altos volumenes de graneles sólidos en <span class="text-alcasa-green">Silos y Bodegas</span>
+          <h1 class="text-4xl md:text-2xl lg:text-3xl font-bold tracking-tight mb-6 leading-tight">
+              Manejo y Almacenamiento de altos volumenes de graneles sólidos en <span class="text-alcasa-green">Silos, Bodegas y Patios</span>
             </h1>
 
-          <p class="text-lg md:text-xl mb-10 max-w-lg text-gray-200 font-light leading-relaxed">
+          <p class="text-lg md:text-lg mb-10 max-w-lg text-gray-200 font-light leading-relaxed">
             Infraestructura de primer nivel para el manejo y conservación de granos básicos por toneladas métricas.
           </p>
 
@@ -67,41 +67,41 @@ import { withBase } from "../../utils/url";
     </div>
   </div>
 
-  <!-- ── Barra inferior de stats ── -->
+  {/* ── Barra inferior de stats ── */}
   <div class="relative z-20 w-full border-t border-white/10 bg-black/30 backdrop-blur-md">
     <div class="container mx-auto px-6 py-5">
       <div class="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
 
-        <!-- Seguridad Garantizada -->
-        <div class="flex items-center justify-center gap-4 py-4 sm:py-0 sm:px-6">
+        {/* Seguridad Garantizada */}
+        <div class="flex items-center justify-start lg:justify-center gap-4 py-4 sm:py-0 sm:px-6">
           <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-alcasa-green/20 flex items-center justify-center text-alcasa-green">
             <i class="bi bi-shield-check text-2xl leading-none"></i>
           </div>
           <div>
-            <h3 class="font-bold text-sm uppercase tracking-wide text-white">Enfoque en Conservación de Granos</h3>
-            <p class="text-xs text-gray-300 mt-0.5">Manejo en silos y bodegas</p>
+            <h3 class="font-bold text-sm uppercase tracking-wide text-white">Filosofía operatica</h3>
+            <p class="text-xs text-gray-300 mt-0.5">Enfoque en conservación de graneles sólidos y carga general</p>
           </div>
         </div>
 
-        <!-- Capacidad Masiva -->
-        <div class="flex items-center justify-center gap-4 py-4 sm:py-0 sm:px-6">
+        {/* Capacidad Masiva */}
+        <div class="flex items-center justify-start lg:justify-center gap-4 py-4 sm:py-0 sm:px-6">
           <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-alcasa-orange/20 flex items-center justify-center text-alcasa-orange">
             <i class="bi bi-boxes text-2xl leading-none"></i>
           </div>
           <div>
             <h3 class="font-bold text-sm uppercase tracking-wide text-white">Altos volumenes</h3>
-            <p class="text-xs text-gray-300 mt-0.5">144,000 toneladas métricas</p>
+            <p class="text-xs text-gray-300 mt-0.5">Capacidad instalada:<br>144,000 toneladas métricas</p>
           </div>
         </div>
 
-        <!-- Ubicación Estratégica -->
-        <div class="flex items-center justify-center gap-4 py-4 sm:py-0 sm:px-6">
+        {/* Ubicación Estratégica */}
+        <div class="flex items-center justify-start lg:justify-center gap-4 py-4 sm:py-0 sm:px-6">
           <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-alcasa-green/20 flex items-center justify-center text-alcasa-green">
             <i class="bi bi-geo-alt-fill text-2xl leading-none"></i>
           </div>
           <div>
             <h3 class="font-bold text-sm uppercase tracking-wide text-white">Ubicación Estratégica</h3>
-            <p class="text-xs text-gray-300 mt-0.5">Zona Industrial de Acajutla en El Salvador</p>
+            <p class="text-xs text-gray-300 mt-0.5">Final de Carretera CA12 Sur, Zona Industrial, Distrito de Acajutla, Sonsonate Oeste, El Salvador, C.A</p>
           </div>
         </div>
 

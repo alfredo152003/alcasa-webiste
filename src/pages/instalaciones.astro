@@ -1,203 +1,160 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
-
-// ── Datos de bodegas (acotado real desde planos AutoCAD) ──
-type Bodega = {
-  id: string;
-  label?: string;
-  capacity: number; // T/M
-  length: number;   // m
-  width: number;    // m
-};
-
-const featured: Bodega = { id: 'BG-4', label: 'Bodega G-4', capacity: 25000, length: 90, width: 45 };
-
-const bodegas: Bodega[] = [
-  { id: 'BG-1', capacity: 15000, length: 118, width: 22 },
-  { id: 'BG-2', capacity:  8000, length:  60, width: 22 },
-  { id: 'BG-3', capacity: 10000, length:  70, width: 22 },
-  { id: 'BG-5', capacity: 10000, length:  71, width: 44 },
-  { id: 'BG-6', capacity:  2500, length:  36, width: 44 },
-  { id: 'BG-7', capacity:  2500, length:  34, width: 44 },
-  { id: 'BG-8', capacity:  2000, length:  25, width: 30 },
-  { id: 'BG-9', capacity: 13000, length: 132, width: 39 },
-  { id: 'BG-10', label: 'A. Molino', capacity: 1800, length: 24, width: 39 },
-];
-
-const allBodegas: Bodega[] = [featured, ...bodegas];
-const totalCapacity = allBodegas.reduce((s, b) => s + b.capacity, 0);
-const totalArea = allBodegas.reduce((s, b) => s + b.length * b.width, 0);
-const maxDim = Math.max(...allBodegas.flatMap(b => [b.length, b.width]));
-const fmt = (n: number) => n.toLocaleString('es-SV');
 ---
 
 <Layout title="Nuestras Instalaciones | ALCASA El Salvador">
   <main class="bg-alcasa-light text-alcasa-dark min-h-screen overflow-hidden">
 
+    {/* ══════════════════════════════════════════════════════════════
+         SECCIÓN 01 · Planta de Silos
+    ═══════════════════════════════════════════════════════════════ */}
     <section class="py-24 bg-white relative mt-10">
       <div class="container mx-auto px-6 max-w-7xl">
 
-        <!-- Encabezado de sección -->
+        {/* Encabezado */}
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out">
           <div>
-            <span class="text-alcasa-green font-bold tracking-widest uppercase text-sm mb-2 block">Almacenaje a Granel</span>
             <h2 class="text-3xl md:text-4xl font-bold text-alcasa-dark tracking-tight">Planta de Silos</h2>
           </div>
           <p class="text-gray-500 max-w-md mt-4 md:mt-0 border-l-2 border-alcasa-green pl-4">
-            Capacidad instalada y rendimiento de recepción de nuestra batería de silos, diseñada para el manejo óptimo de toneladas métricas.
+            Preparada para manejo especializado de cereales para consumo humano: Trigo, Maíz, Malta y Arroz
           </p>
         </div>
 
-        <!-- Stack: hero stat + 3 cards de soporte -->
+        {/* Stack: hero stat + 3 cards de soporte */}
         <div class="space-y-5">
 
-          <!-- ─ Hero Card · Capacidad instalada (44,000 tn) ─ -->
+          {/* ─ Hero Card · Capacidad instalada (44,000 tm) ─ */}
           <article
             class="group reveal opacity-0 translate-y-12 relative bg-alcasa-dark text-alcasa-light rounded-3xl p-8 md:p-12 lg:p-14 hover:shadow-[0_30px_60px_-15px_rgba(73,73,75,0.55)] transition-all duration-700 ease-out overflow-hidden"
+            data-matrix-trigger
+            data-stagger="0"
           >
-            <!-- Glows internos (mismo recurso que ServicesSection) -->
-            <div class="absolute -right-20 -bottom-20 w-[28rem] h-[28rem] bg-alcasa-orange/25 rounded-full blur-3xl group-hover:bg-alcasa-orange/35 transition-colors duration-700 pointer-events-none"></div>
-            <div class="absolute -left-16 -top-16 w-72 h-72 bg-alcasa-green/20 rounded-full blur-3xl group-hover:bg-alcasa-green/30 transition-colors duration-700 pointer-events-none"></div>
+            {/* Glows ambientales */}
+            <div class="absolute -left-32 -bottom-28 w-[28rem] h-72 bg-alcasa-green/[0.13] rounded-[50%] blur-[110px] rotate-[14deg] pointer-events-none"></div>
+            <div class="absolute left-1/4 -bottom-40 w-72 h-48 bg-alcasa-green/[0.06] rounded-[50%] blur-[80px] -rotate-[8deg] pointer-events-none"></div>
+            <div class="absolute -right-36 -top-32 w-[32rem] h-80 bg-alcasa-orange/[0.11] rounded-[50%] blur-[120px] -rotate-[18deg] pointer-events-none"></div>
+            <div class="absolute right-1/3 -top-24 w-64 h-44 bg-alcasa-orange/[0.05] rounded-[50%] blur-[70px] rotate-[10deg] pointer-events-none"></div>
 
             <div class="relative z-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
 
-              <!-- Columna izquierda · número hero -->
               <div class="flex-1 min-w-0">
-
                 <div class="flex items-center gap-3 mb-6 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-orange">
                   <span class="block w-8 h-px bg-alcasa-orange"></span>
                   <span>Capacidad instalada · Total</span>
                 </div>
 
                 <h3 class="text-7xl md:text-8xl lg:text-[9rem] font-bold text-white tabular-nums tracking-tighter leading-[0.9]">
-                  44,000<span class="text-2xl md:text-3xl font-medium text-white/60 ml-3 tracking-normal">tn</span>
+                  <span class="js-matrix-stat" data-target="44000" data-format="comma" data-variant="bootup" data-glow="orange">44,000</span><span class="text-2xl md:text-3xl font-medium text-white/60 ml-3 tracking-normal">tm</span>
                 </h3>
 
                 <p class="mt-6 text-base md:text-lg text-gray-300 font-light leading-relaxed max-w-md">
-                  Toneladas métricas almacenadas en batería de silos de concreto reforzado, bajo régimen de recinto fiscal público.
+                  3 baterías de silos de concreto reforzado
                 </p>
               </div>
 
-              <!-- Columna derecha · meta-stats -->
               <div class="flex-shrink-0 lg:max-w-xs lg:text-right">
                 <div class="inline-flex lg:flex flex-col gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
                   <div>
                     <p class="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-white/50 mb-1">Sede</p>
-                    <p class="text-base font-bold text-white tracking-tight">Acajutla · El Salvador</p>
+                    <p class="text-base font-bold text-white tracking-tight">Puerto de Acajutla · El Salvador</p>
                   </div>
                   <div class="h-px w-full bg-white/10"></div>
                   <div>
                     <p class="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-white/50 mb-1">Régimen</p>
-                    <p class="text-base font-bold text-white tracking-tight">Recinto fiscal público</p>
+                    <p class="text-base font-bold text-white tracking-tight">Depósito de aduana público</p>
                   </div>
                 </div>
               </div>
-
             </div>
           </article>
 
-          <!-- ─ Cards de soporte · 3 métricas operativas ─ -->
+          {/* ─ Cards de soporte · 3 métricas operativas ─ */}
           <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-            <!-- Card · Rendimiento de recepción -->
+            {/* Card · Rendimiento Máximo */}
             <article
               class="group reveal opacity-0 translate-y-12 relative bg-white rounded-2xl p-8 border border-gray-100 hover:border-alcasa-green/40 hover:shadow-[0_25px_50px_-15px_rgba(120,171,44,0.25)] hover:-translate-y-1 transition-all duration-700 ease-out overflow-hidden"
+              data-matrix-trigger
+              data-stagger="0"
             >
-              <div class="relative z-10 flex flex-col h-full min-h-[300px]">
-
-                <div class="flex items-center gap-3 mb-6 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-green">
-                  <span class="block w-8 h-px bg-alcasa-green"></span>
-                  <span>Rendimiento Máximo</span>
+              <div class="relative z-10 flex flex-col h-full">
+                <div class="flex items-start justify-between gap-4 mb-10">
+                  <div class="flex items-center gap-3 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-green pt-3">
+                    <span class="block w-8 h-px bg-alcasa-green"></span>
+                    <span>Rendimiento</span>
+                  </div>
+                  <div class="w-12 h-12 bg-alcasa-green/10 rounded-xl flex items-center justify-center text-alcasa-green group-hover:bg-alcasa-green group-hover:text-white group-hover:scale-105 transition-all duration-500 shrink-0">
+                    <i class="bi bi-speedometer2 text-xl leading-none"></i>
+                  </div>
                 </div>
 
-                <div class="w-14 h-14 bg-alcasa-green/10 rounded-xl flex items-center justify-center mb-6 text-alcasa-green group-hover:scale-105 group-hover:bg-alcasa-green group-hover:text-white transition-all duration-500">
-                  <i class="bi bi-speedometer2 text-2xl leading-none"></i>
-                </div>
-
-                <h3 class="text-2xl font-bold text-alcasa-dark mb-3 tracking-tight">Recepción por hora</h3>
-                <p class="text-alcasa-dark/70 font-light leading-relaxed text-sm">
-                  Velocidad máxima de recepción de granel sólido en condiciones óptimas.
+                <p class="text-6xl md:text-7xl font-bold text-alcasa-dark tabular-nums tracking-tighter leading-[0.9]">
+                  <span class="js-matrix-stat" data-target="500" data-format="plain" data-variant="pulse" data-glow="green">500</span><span class="text-xl md:text-2xl font-medium text-alcasa-dark/55 ml-2 tracking-normal">tm/h</span>
                 </p>
 
-                <div class="mt-auto pt-8 border-t border-dashed border-alcasa-dark/15">
-                  <p class="text-3xl md:text-4xl font-bold text-alcasa-dark tabular-nums tracking-tight leading-none">
-                    500<span class="text-base font-medium text-alcasa-dark/60 ml-1.5">tn/h</span>
-                  </p>
-                  <p class="text-[0.7rem] font-medium text-alcasa-dark/50 mt-2 leading-relaxed">
-                    Densidad de referencia · 800 kg/hL
-                  </p>
-                </div>
+                <p class="mt-4 text-xs font-medium tracking-wide text-alcasa-dark/55">
+                  Recepción por hora · Densidad 800 kg/hL
+                </p>
               </div>
             </article>
 
-            <!-- Card · Puntos de recepción simultánea -->
+            {/* Card · Puntos en paralelo */}
             <article
               class="group reveal opacity-0 translate-y-12 relative bg-white rounded-2xl p-8 border border-gray-100 hover:border-alcasa-orange/40 hover:shadow-[0_25px_50px_-15px_rgba(230,126,0,0.25)] hover:-translate-y-1 transition-all duration-700 ease-out delay-[100ms] overflow-hidden"
+              data-matrix-trigger
+              data-stagger="0"
             >
-              <div class="relative z-10 flex flex-col h-full min-h-[300px]">
-
-                <div class="flex items-center gap-3 mb-6 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-orange">
-                  <span class="block w-8 h-px bg-alcasa-orange"></span>
-                  <span>Recepción Simultánea</span>
+              <div class="relative z-10 flex flex-col h-full">
+                <div class="flex items-start justify-between gap-4 mb-10">
+                  <div class="flex items-center gap-3 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-orange pt-3">
+                    <span class="block w-8 h-px bg-alcasa-orange"></span>
+                    <span>Puntos en paralelo</span>
+                  </div>
+                  <div class="w-12 h-12 bg-alcasa-orange/10 rounded-xl flex items-center justify-center text-alcasa-orange group-hover:bg-alcasa-orange group-hover:text-white group-hover:scale-105 transition-all duration-500 shrink-0">
+                    <i class="bi bi-funnel text-xl leading-none"></i>
+                  </div>
                 </div>
 
-                <div class="w-14 h-14 bg-alcasa-orange/10 rounded-xl flex items-center justify-center mb-6 text-alcasa-orange group-hover:scale-105 group-hover:bg-alcasa-orange group-hover:text-white transition-all duration-500">
-                  <i class="bi bi-funnel text-2xl leading-none"></i>
-                </div>
-
-                <h3 class="text-2xl font-bold text-alcasa-dark mb-3 tracking-tight">Puntos en paralelo</h3>
-                <p class="text-alcasa-dark/70 font-light leading-relaxed text-sm">
-                  Cuatro líneas de recepción operando simultáneamente para acelerar la descarga.
+                <p class="text-6xl md:text-7xl font-bold text-alcasa-dark tabular-nums tracking-tighter leading-[0.9]">
+                  <span class="js-matrix-stat" data-target="6" data-format="plain" data-variant="pulse" data-glow="orange">6</span><span class="text-xl md:text-2xl font-medium text-alcasa-dark/55 ml-2 tracking-normal">tolvas</span>
                 </p>
 
-                <div class="mt-auto pt-8 border-t border-dashed border-alcasa-dark/15">
-                  <div class="flex items-end gap-4">
-                    <p class="text-3xl md:text-4xl font-bold text-alcasa-dark tabular-nums tracking-tight leading-none">
-                      4<span class="text-base font-medium text-alcasa-dark/60 ml-1.5">puntos</span>
-                    </p>
-                    <!-- Mini visualización · 4 dots -->
-                    <div class="flex items-center gap-1.5 ml-auto pb-1">
-                      <span class="w-2 h-2 rounded-full bg-alcasa-orange"></span>
-                      <span class="w-2 h-2 rounded-full bg-alcasa-orange"></span>
-                      <span class="w-2 h-2 rounded-full bg-alcasa-orange"></span>
-                      <span class="w-2 h-2 rounded-full bg-alcasa-orange"></span>
-                    </div>
-                  </div>
-                  <p class="text-[0.7rem] font-medium text-alcasa-dark/50 mt-2 leading-relaxed">
-                    Operación en paralelo · Sin interferencia
-                  </p>
-                </div>
+                <p class="mt-4 text-xs font-medium tracking-wide text-alcasa-dark/55">
+                  Con 3 Elevadores de Cereales · Sin interferencia
+                </p>
               </div>
             </article>
 
-            <!-- Card · Métodos de recepción -->
+            {/* Card · Sistemas de recepción */}
             <article
               class="group reveal opacity-0 translate-y-12 relative bg-white rounded-2xl p-8 border border-gray-100 hover:border-alcasa-dark/40 hover:shadow-[0_25px_50px_-15px_rgba(73,73,75,0.2)] hover:-translate-y-1 transition-all duration-700 ease-out delay-[200ms] overflow-hidden"
+              data-matrix-trigger
+              data-stagger="0"
             >
-              <div class="relative z-10 flex flex-col h-full min-h-[300px]">
-
-                <div class="flex items-center gap-3 mb-6 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/70">
-                  <span class="block w-8 h-px bg-alcasa-dark/70"></span>
-                  <span>Métodos · Flexibilidad</span>
+              <div class="relative z-10 flex flex-col h-full">
+                <div class="flex items-start justify-between gap-4 mb-10">
+                  <div class="flex items-center gap-3 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/70 pt-3">
+                    <span class="block w-8 h-px bg-alcasa-dark/70"></span>
+                    <span>Sistemas de recepción</span>
+                  </div>
+                  <div class="w-12 h-12 bg-alcasa-dark/5 rounded-xl flex items-center justify-center text-alcasa-dark group-hover:bg-alcasa-dark group-hover:text-white group-hover:scale-105 transition-all duration-500 shrink-0">
+                    <i class="bi bi-shuffle text-xl leading-none"></i>
+                  </div>
                 </div>
 
-                <div class="w-14 h-14 bg-alcasa-dark/5 rounded-xl flex items-center justify-center mb-6 text-alcasa-dark group-hover:scale-105 group-hover:bg-alcasa-dark group-hover:text-white transition-all duration-500">
-                  <i class="bi bi-shuffle text-2xl leading-none"></i>
-                </div>
-
-                <h3 class="text-2xl font-bold text-alcasa-dark mb-3 tracking-tight">Sistemas de recepción</h3>
-                <p class="text-alcasa-dark/70 font-light leading-relaxed text-sm">
-                  Compatibilidad con distintos sistemas para adaptarse al tipo de descarga del cliente.
+                <p class="text-6xl md:text-7xl font-bold text-alcasa-dark tabular-nums tracking-tighter leading-[0.9]">
+                  <span class="js-matrix-stat" data-target="2" data-format="plain" data-variant="pulse" data-glow="dark">2</span><span class="text-xl md:text-2xl font-medium text-alcasa-dark/55 ml-2 tracking-normal">sistemas</span>
                 </p>
 
-                <div class="mt-auto pt-8 border-t border-dashed border-alcasa-dark/15 flex flex-wrap gap-2">
-                  <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-alcasa-green/10 text-alcasa-green text-xs font-bold tracking-wide">
-                    <i class="bi bi-arrow-right-short text-base leading-none"></i>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-alcasa-green/10 text-alcasa-green text-[0.7rem] font-bold tracking-wide">
+                    <span class="w-1.5 h-1.5 rounded-full bg-alcasa-green"></span>
                     Bandas
                   </span>
-                  <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-alcasa-orange/10 text-alcasa-orange text-xs font-bold tracking-wide">
-                    <i class="bi bi-arrow-right-short text-base leading-none"></i>
-                    Convencionales
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-alcasa-orange/10 text-alcasa-orange text-[0.7rem] font-bold tracking-wide">
+                    <span class="w-1.5 h-1.5 rounded-full bg-alcasa-orange"></span>
+                    Medios Convencionales
                   </span>
                 </div>
               </div>
@@ -208,237 +165,107 @@ const fmt = (n: number) => n.toLocaleString('es-SV');
       </div>
     </section>
 
+    {/* ══════════════════════════════════════════════════════════════
+         SECCIÓN 02 · Intermedio parallax · Bodegas
+    ═══════════════════════════════════════════════════════════════ */}
     <section class="relative py-24 bg-fixed bg-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop');">
-      <div class="absolute inset-0 bg-alcasa-dark/80 mix-blend-multiply"></div>
-      
+      <div class="absolute inset-0 bg-alcasa-dark mix-blend-multiply"></div>
+
       <div class="relative z-10 container mx-auto px-6 text-center text-white reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto mb-6 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
-        <h2 class="text-3xl md:text-5xl font-bold mb-4">Control Total de Espacios</h2>
+        <i class="bi bi-houses text-5xl md:text-6xl leading-none opacity-80 mb-6 inline-block"></i>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">Bodegas Mecanizadas y No Mecanizadas</h2>
         <p class="text-lg text-white/90 max-w-2xl mx-auto">
-          Nuestras bodegas techadas ofrecen las dimensiones exactas requeridas para la carga general y el almacenamiento en sacos, garantizando maniobrabilidad y seguridad.
+          Infraestructura preparada para la carga general y el almacenamiento de graneles sólidos.
         </p>
       </div>
     </section>
 
-    <section class="py-24 md:py-32 bg-alcasa-light relative overflow-hidden" id="bodegas">
+    {/* ══════════════════════════════════════════════════════════════
+         SECCIÓN 03 · Bodegas · stats + descripción
+    ═══════════════════════════════════════════════════════════════ */}
+    <section class="py-20 md:py-28 bg-alcasa-light relative overflow-hidden" id="bodegas">
 
-      <!-- Decoraciones de fondo -->
+      {/* Decoraciones de fondo */}
       <div class="absolute -left-20 top-32 w-72 h-72 bg-alcasa-green/5 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute right-0 bottom-20 w-80 h-80 bg-alcasa-orange/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="container mx-auto px-6 max-w-7xl relative">
 
-        <!-- Encabezado de sección -->
-        <div class="text-center mb-12 md:mb-16 reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-          <span class="inline-block mb-4 px-4 py-1.5 rounded-full border border-alcasa-orange/50 bg-alcasa-orange/10 text-alcasa-orange text-sm font-bold tracking-wider uppercase backdrop-blur-sm">
-            Bodegas Mecanizadas
-          </span>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-alcasa-dark tracking-tight leading-[1.05]">
-            Capacidades y Medidas <br class="hidden md:block" />de <span class="text-alcasa-orange">Bodegas</span>
-          </h2>
-          <p class="mt-5 text-base md:text-lg text-alcasa-dark/65 font-light leading-relaxed max-w-2xl mx-auto">
-            Acotado real de cada bodega bajo techo, con su capacidad operativa en toneladas métricas.
-          </p>
-        </div>
-
-        <!-- Tira de stats global -->
-        <div class="mb-10 reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-[100ms]">
+        {/* ─ Tira de stats global · animación matrix de cálculo ─ */}
+        <div
+          class="mb-6 md:mb-8 reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-[100ms]"
+          data-matrix-trigger
+          data-stagger="120"
+        >
           <div class="grid grid-cols-2 md:grid-cols-4 rounded-2xl bg-white border border-gray-100 shadow-sm overflow-hidden divide-x divide-y md:divide-y-0 divide-gray-100">
 
             <div class="p-6">
               <p class="text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/55 mb-2">Bodegas</p>
-              <p class="text-3xl md:text-4xl font-bold text-alcasa-dark tabular-nums tracking-tight leading-none">{allBodegas.length}<span class="text-sm font-medium text-alcasa-dark/50 ml-1.5">unidades</span></p>
+              <p class="text-3xl md:text-4xl font-bold text-alcasa-dark tabular-nums tracking-tight leading-none">
+                <span class="js-matrix-stat" data-target="10" data-format="plain">10</span><span class="text-sm font-medium text-alcasa-dark/50 ml-1.5">unidades</span>
+              </p>
             </div>
 
             <div class="p-6">
               <p class="text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/55 mb-2">Capacidad total</p>
-              <p class="text-3xl md:text-4xl font-bold text-alcasa-green tabular-nums tracking-tight leading-none">{fmt(totalCapacity)}<span class="text-sm font-medium text-alcasa-dark/50 ml-1.5">T/M</span></p>
+              <p class="text-3xl md:text-4xl font-bold text-alcasa-green tabular-nums tracking-tight leading-none">
+                <span class="js-matrix-stat" data-target="100000" data-format="comma">100,000</span><span class="text-sm font-medium text-alcasa-dark/50 ml-1.5 tracking-wide">tm</span>
+              </p>
             </div>
 
             <div class="p-6">
               <p class="text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/55 mb-2">Área cubierta</p>
-              <p class="text-3xl md:text-4xl font-bold text-alcasa-dark tabular-nums tracking-tight leading-none">≈{fmt(Math.round(totalArea / 100) * 100)}<span class="text-sm font-medium text-alcasa-dark/50 ml-1.5">m²</span></p>
+              <p class="text-3xl md:text-4xl font-bold text-alcasa-dark tabular-nums tracking-tight leading-none">
+                <span class="js-matrix-stat" data-target="22500" data-format="comma" data-prefix="≈">≈22,500</span><span class="text-sm font-medium text-alcasa-dark/50 ml-1.5">m²</span>
+              </p>
             </div>
 
             <div class="p-6">
-              <p class="text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/55 mb-2">Mayor bodega</p>
-              <p class="text-3xl md:text-4xl font-bold text-alcasa-orange tabular-nums tracking-tight leading-none">{featured.id}<span class="text-sm font-medium text-alcasa-dark/50 ml-1.5">{fmt(featured.capacity)} T/M</span></p>
+              <p class="text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/55 mb-2">Ratio de Recepción</p>
+              <p class="text-3xl md:text-4xl font-bold text-alcasa-orange tabular-nums tracking-tight leading-none">
+                <span class="js-matrix-stat" data-target="300" data-format="plain">300</span><span class="text-sm font-medium text-alcasa-dark/50 ml-1.5 tracking-wide">tm/h</span>
+              </p>
             </div>
 
           </div>
         </div>
 
-        <!-- ── Bodega destacada · BG-4 ── -->
-        <article
-          class="group reveal opacity-0 translate-y-12 relative bg-alcasa-dark text-alcasa-light rounded-3xl p-8 md:p-10 mb-5 hover:shadow-[0_30px_60px_-15px_rgba(73,73,75,0.55)] transition-all duration-700 ease-out overflow-hidden"
-        >
-          <!-- Glows internos -->
-          <div class="absolute -right-20 -bottom-20 w-[28rem] h-[28rem] bg-alcasa-orange/25 rounded-full blur-3xl group-hover:bg-alcasa-orange/35 transition-colors duration-700 pointer-events-none"></div>
-          <div class="absolute -left-16 -top-16 w-72 h-72 bg-alcasa-green/15 rounded-full blur-3xl group-hover:bg-alcasa-green/25 transition-colors duration-700 pointer-events-none"></div>
+        {/* ─ Bloque descriptivo · Bodegas ─ */}
+        <div class="reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-[200ms]">
+          <article class="relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-sm p-8 md:p-12 lg:p-14">
 
-          <div class="relative z-10 flex flex-col lg:flex-row lg:items-stretch gap-8 lg:gap-12">
+            {/* Glows orgánicos suaves */}
+            <div class="absolute -right-32 -top-24 w-[28rem] h-64 bg-alcasa-orange/[0.07] rounded-[50%] blur-[100px] rotate-[14deg] pointer-events-none"></div>
+            <div class="absolute -left-24 -bottom-20 w-72 h-52 bg-alcasa-green/[0.06] rounded-[50%] blur-[90px] -rotate-[10deg] pointer-events-none"></div>
 
-            <!-- Texto · izquierda -->
-            <div class="flex-1 min-w-0 flex flex-col justify-between">
-              <div>
-                <div class="flex items-center gap-3 mb-5 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-orange">
+            <div class="relative z-10 flex flex-col md:flex-row md:items-center gap-8 md:gap-10">
+
+              {/* Bloque icono */}
+              <div class="flex-shrink-0">
+                <div class="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-alcasa-orange/10 flex items-center justify-center text-alcasa-orange">
+                  <i class="bi bi-houses-fill text-4xl md:text-5xl leading-none"></i>
+                </div>
+              </div>
+
+              {/* Texto principal */}
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-3 mb-4 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-orange">
                   <span class="block w-8 h-px bg-alcasa-orange"></span>
-                  <span>Bodega de mayor capacidad</span>
+                  <span>Infraestructura · Bodegas</span>
                 </div>
 
-                <div class="flex items-baseline gap-4 mb-3">
-                  <h3 class="text-5xl md:text-6xl font-bold text-white tracking-tight leading-none">{featured.id}</h3>
-                  <span class="text-base font-medium text-white/55 tracking-tight">{featured.label}</span>
-                </div>
-
-                <p class="text-gray-300 font-light leading-relaxed mb-8 max-w-md">
-                  La bodega de mayor superficie de la planta, equipada para almacenamiento masivo de carga seca y graneles.
+                <p class="text-xl md:text-2xl lg:text-[1.75rem] font-bold text-alcasa-dark tracking-tight leading-[1.25]">
+                  Bodegas <span class="text-alcasa-orange">techadas</span> y piso de <span class="text-alcasa-green">concreto reforzado</span>, para almacenamiento de graneles sólidos.
                 </p>
               </div>
-
-              <div class="flex flex-wrap items-end gap-x-10 gap-y-5 pt-6 border-t border-dashed border-white/15">
-                <div>
-                  <p class="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-white/45 mb-1">Capacidad</p>
-                  <p class="text-4xl md:text-5xl font-bold text-white tabular-nums tracking-tight leading-none">{fmt(featured.capacity)}<span class="text-base font-medium text-white/55 ml-2 tracking-normal">T/M</span></p>
-                </div>
-                <div>
-                  <p class="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-white/45 mb-1">Largo</p>
-                  <p class="text-2xl font-bold text-white tabular-nums tracking-tight leading-none">{featured.length}<span class="text-sm font-medium text-white/55 ml-1 tracking-normal">m</span></p>
-                </div>
-                <div>
-                  <p class="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-white/45 mb-1">Ancho</p>
-                  <p class="text-2xl font-bold text-white tabular-nums tracking-tight leading-none">{featured.width}<span class="text-sm font-medium text-white/55 ml-1 tracking-normal">m</span></p>
-                </div>
-                <div>
-                  <p class="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-white/45 mb-1">Área</p>
-                  <p class="text-2xl font-bold text-white tabular-nums tracking-tight leading-none">{fmt(featured.length * featured.width)}<span class="text-sm font-medium text-white/55 ml-1 tracking-normal">m²</span></p>
-                </div>
-              </div>
             </div>
-
-            <!-- Plano · derecha -->
-            <div class="lg:w-[42%] lg:flex-shrink-0">
-              <div class="relative aspect-[3/2] rounded-2xl bg-white/5 border border-white/10 overflow-hidden p-5">
-                <!-- Cuadrícula tipo blueprint -->
-                <div class="absolute inset-0 opacity-30 pointer-events-none" aria-hidden="true" style="background-image: linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 24px 24px;"></div>
-
-                <!-- Etiqueta superior -->
-                <p class="absolute top-3 left-4 text-[0.6rem] font-bold tracking-[0.3em] uppercase text-white/40 z-10">Acotado real</p>
-
-                <!-- Rectángulo BG-4 escalado -->
-                <div class="absolute inset-5 flex items-center justify-center">
-                  <div
-                    class="relative bg-alcasa-orange/20 border-2 border-alcasa-orange rounded-md flex items-center justify-center group-hover:bg-alcasa-orange/30 transition-colors duration-700"
-                    style={`width: ${(featured.length / maxDim) * 100}%; aspect-ratio: ${featured.length} / ${featured.width};`}
-                  >
-                    <span class="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-white">{featured.id}</span>
-
-                    <!-- Cota superior · largo -->
-                    <span class="absolute -top-6 left-0 right-0 text-center text-[0.65rem] font-bold tabular-nums text-alcasa-orange tracking-tight">{featured.length} m</span>
-                    <!-- Cota lateral · ancho -->
-                    <span class="absolute top-0 bottom-0 -right-9 flex items-center text-[0.65rem] font-bold tabular-nums text-alcasa-orange tracking-tight">{featured.width} m</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </article>
-
-        <!-- ── Grid de bodegas restantes ── -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {bodegas.map((b, i) => {
-            // Tonalidad por capacidad
-            const isHigh = b.capacity >= 10000;
-            const accent = isHigh ? 'orange' : 'green';
-            const accentBg = isHigh ? 'bg-alcasa-orange/10' : 'bg-alcasa-green/10';
-            const accentBorder = isHigh ? 'bg-alcasa-orange' : 'bg-alcasa-green';
-            const accentText = isHigh ? 'text-alcasa-orange' : 'text-alcasa-green';
-            const hoverBorder = isHigh ? 'hover:border-alcasa-orange/40' : 'hover:border-alcasa-green/40';
-            const hoverShadow = isHigh
-              ? 'hover:shadow-[0_25px_50px_-15px_rgba(230,126,0,0.25)]'
-              : 'hover:shadow-[0_25px_50px_-15px_rgba(120,171,44,0.25)]';
-
-            const widthPct = (b.length / maxDim) * 100;
-            const area = b.length * b.width;
-
-            return (
-              <article
-                class={`group reveal opacity-0 translate-y-12 relative bg-white rounded-2xl p-6 md:p-7 border border-gray-100 ${hoverBorder} ${hoverShadow} hover:-translate-y-1 transition-all duration-700 ease-out overflow-hidden`}
-                style={`transition-delay: ${i * 50}ms;`}
-              >
-                <!-- Header del card · ID + capacidad pill -->
-                <div class="flex items-start justify-between gap-4 mb-5">
-                  <div class="min-w-0">
-                    <div class={`flex items-center gap-2 mb-2 text-[0.65rem] font-bold tracking-[0.3em] uppercase ${accentText}`}>
-                      <span class={`block w-5 h-px ${accentBorder}`}></span>
-                      <span>Bodega</span>
-                    </div>
-                    <div class="flex items-baseline gap-2">
-                      <h3 class="text-3xl font-bold text-alcasa-dark tracking-tight leading-none">{b.id}</h3>
-                      {b.label && <span class="text-xs text-alcasa-dark/55 font-medium tracking-tight">{b.label}</span>}
-                    </div>
-                  </div>
-
-                  <span class={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full ${accentBg} ${accentText} text-xs font-bold tracking-wide tabular-nums whitespace-nowrap`}>
-                    {fmt(b.capacity)} T/M
-                  </span>
-                </div>
-
-                <!-- Plano · acotado proporcional -->
-                <div class="relative aspect-[3/2] rounded-xl bg-alcasa-light border border-gray-100 overflow-hidden mb-5">
-                  <!-- Cuadrícula -->
-                  <div class="absolute inset-0 opacity-50 pointer-events-none" aria-hidden="true" style="background-image: linear-gradient(to right, rgba(73,73,75,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(73,73,75,0.06) 1px, transparent 1px); background-size: 16px 16px;"></div>
-
-                  <!-- Rectángulo escalado de la bodega -->
-                  <div class="absolute inset-3 flex items-center justify-center">
-                    <div
-                      class={`relative ${accentBg} ${isHigh ? 'border border-alcasa-orange/60' : 'border border-alcasa-green/60'} rounded`}
-                      style={`width: ${widthPct}%; aspect-ratio: ${b.length} / ${b.width};`}
-                    >
-                      <span class={`absolute inset-0 flex items-center justify-center text-[0.55rem] font-bold tracking-[0.2em] uppercase ${accentText} opacity-80`}>{b.id}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Métricas inferiores -->
-                <div class="flex items-end justify-between pt-5 border-t border-dashed border-alcasa-dark/15">
-                  <div class="flex gap-5">
-                    <div>
-                      <p class="text-[0.6rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/50 mb-1">Largo</p>
-                      <p class="text-base font-bold text-alcasa-dark tabular-nums tracking-tight leading-none">{b.length}<span class="text-xs font-medium text-alcasa-dark/55 ml-1">m</span></p>
-                    </div>
-                    <div>
-                      <p class="text-[0.6rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/50 mb-1">Ancho</p>
-                      <p class="text-base font-bold text-alcasa-dark tabular-nums tracking-tight leading-none">{b.width}<span class="text-xs font-medium text-alcasa-dark/55 ml-1">m</span></p>
-                    </div>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-[0.6rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/50 mb-1">Área</p>
-                    <p class="text-base font-bold text-alcasa-dark tabular-nums tracking-tight leading-none">{fmt(area)}<span class="text-xs font-medium text-alcasa-dark/55 ml-1">m²</span></p>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        <!-- Nota informativa al pie -->
-        <div class="mt-10 reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-          <div class="flex items-start gap-4 px-5 py-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-dashed border-alcasa-dark/20">
-            <span class="flex-shrink-0 w-9 h-9 rounded-lg bg-alcasa-orange/10 text-alcasa-orange flex items-center justify-center mt-0.5">
-              <i class="bi bi-info-circle-fill text-base leading-none"></i>
-            </span>
-            <p class="text-xs md:text-sm text-alcasa-dark/65 font-light leading-relaxed">
-              Los datos reflejan el acotado real de las instalaciones bajo planos AutoCAD. El volumen efectivo de almacenamiento puede variar según la estiba, el tipo de producto y las normativas de seguridad vigentes.
-            </p>
-          </div>
+          </article>
         </div>
 
       </div>
     </section>
 
-    <!-- Semilla: fuerza a Tailwind a incluir las clases añadidas dinámicamente por JS -->
+    {/* Semilla: fuerza a Tailwind a incluir las clases añadidas dinámicamente por JS */}
     <div class="hidden opacity-100 translate-y-0"></div>
 
   </main>
@@ -458,13 +285,135 @@ const fmt = (n: number) => n.toLocaleString('es-SV');
       }, {
         root: null,
         rootMargin: '0px',
-        threshold: 0.15 
+        threshold: 0.15
       });
 
-      reveals.forEach(reveal => {
-        observer.observe(reveal);
-      });
+      reveals.forEach(reveal => observer.observe(reveal));
+
+      // ── Animaciones "matrix de cálculo" con variantes ──
+      const formatNumberEs = (n: number) => n.toLocaleString('es-SV');
+
+      type VariantCfg = { ticks: number; interval: number; settleStart: number };
+      const VARIANTS: Record<string, VariantCfg> = {
+        matrix: { ticks: 24, interval: 55, settleStart: 0.30 }, // tira de stats
+        bootup: { ticks: 36, interval: 55, settleStart: 0.20 }, // hero 44,000 (lento + dramático)
+        pulse:  { ticks: 14, interval: 50, settleStart: 0.50 }, // support cards (snappy)
+      };
+
+      const animateStat = (el: HTMLElement) => {
+        const target = parseInt(el.dataset.target || '0', 10);
+        const format = el.dataset.format || 'plain';
+        const prefix = el.dataset.prefix || '';
+        const variant = el.dataset.variant || 'matrix';
+        const glow = el.dataset.glow || 'green';
+        if (Number.isNaN(target)) return;
+
+        const cfg = VARIANTS[variant] || VARIANTS.matrix;
+        const targetStr = target.toString();
+        const targetFormatted = format === 'comma' ? formatNumberEs(target) : targetStr;
+        const digits = targetStr.length;
+        let tick = 0;
+
+        el.classList.add('is-computing', `glow-${glow}`);
+
+        const interval = window.setInterval(() => {
+          tick++;
+
+          if (tick >= cfg.ticks) {
+            el.textContent = prefix + targetFormatted;
+            el.classList.remove('is-computing');
+            el.classList.add('is-done');
+            window.clearInterval(interval);
+            window.setTimeout(() => {
+              el.classList.remove('is-done', `glow-${glow}`);
+            }, 800);
+            return;
+          }
+
+          const progress = tick / cfg.ticks;
+          const settleProgress = Math.max(0, (progress - cfg.settleStart) / (1 - cfg.settleStart));
+          const settledCount = Math.floor(digits * settleProgress);
+
+          let scrambled = '';
+          for (let i = 0; i < digits; i++) {
+            scrambled += i < settledCount
+              ? targetStr[i]
+              : Math.floor(Math.random() * 10).toString();
+          }
+
+          // Aplica la "máscara" del formato final para preservar comas y ancho
+          let display = '';
+          let idx = 0;
+          for (const ch of targetFormatted) {
+            if (ch >= '0' && ch <= '9') {
+              display += scrambled[idx++];
+            } else {
+              display += ch;
+            }
+          }
+
+          el.textContent = prefix + display;
+        }, cfg.interval);
+      };
+
+      const triggers = document.querySelectorAll<HTMLElement>('[data-matrix-trigger]');
+      if (triggers.length) {
+        const triggerObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const stats = entry.target.querySelectorAll<HTMLElement>('.js-matrix-stat');
+            const stagger = parseInt((entry.target as HTMLElement).dataset.stagger || '120', 10);
+            stats.forEach((stat, i) => {
+              window.setTimeout(() => animateStat(stat), i * stagger);
+            });
+            triggerObserver.unobserve(entry.target);
+          });
+        }, { threshold: 0.25 });
+        triggers.forEach(t => triggerObserver.observe(t));
+      }
     });
   </script>
+
+  <style>
+    .js-matrix-stat {
+      display: inline-block;
+      transition: color 280ms ease, text-shadow 280ms ease, transform 280ms ease;
+    }
+    .js-matrix-stat.is-computing { transform: translateY(-1px); }
+
+    /* ── Glow variants ── */
+    .js-matrix-stat.glow-green.is-computing {
+      color: #78ab2c;
+      text-shadow: 0 0 14px rgba(120, 171, 44, 0.55), 0 0 4px rgba(120, 171, 44, 0.45);
+    }
+    .js-matrix-stat.glow-orange.is-computing {
+      color: #e67e00;
+      text-shadow: 0 0 16px rgba(230, 126, 0, 0.6), 0 0 5px rgba(230, 126, 0, 0.5);
+    }
+    .js-matrix-stat.glow-dark.is-computing {
+      color: #49494b;
+      text-shadow: 0 0 10px rgba(73, 73, 75, 0.4);
+    }
+
+    /* ── Done flashes ── */
+    .js-matrix-stat.is-done.glow-green  { animation: flash-green  650ms cubic-bezier(0.16, 1, 0.3, 1); }
+    .js-matrix-stat.is-done.glow-orange { animation: flash-orange 780ms cubic-bezier(0.16, 1, 0.3, 1); }
+    .js-matrix-stat.is-done.glow-dark   { animation: flash-dark   520ms cubic-bezier(0.16, 1, 0.3, 1); }
+
+    @keyframes flash-green {
+      0%   { text-shadow: 0 0 22px rgba(120, 171, 44, 0.85), 0 0 6px rgba(120, 171, 44, 0.6); transform: translateY(-1px) scale(1.03); }
+      60%  { text-shadow: 0 0 8px rgba(120, 171, 44, 0.3); }
+      100% { text-shadow: 0 0 0 transparent; transform: translateY(0) scale(1); }
+    }
+    @keyframes flash-orange {
+      0%   { text-shadow: 0 0 28px rgba(230, 126, 0, 0.95), 0 0 10px rgba(230, 126, 0, 0.7); transform: translateY(-2px) scale(1.05); }
+      55%  { text-shadow: 0 0 10px rgba(230, 126, 0, 0.35); }
+      100% { text-shadow: 0 0 0 transparent; transform: translateY(0) scale(1); }
+    }
+    @keyframes flash-dark {
+      0%   { text-shadow: 0 0 18px rgba(73, 73, 75, 0.55); transform: translateY(-1px) scale(1.03); }
+      100% { text-shadow: 0 0 0 transparent; transform: translateY(0) scale(1); }
+    }
+  </style>
 
 </Layout>

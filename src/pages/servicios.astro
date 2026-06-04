@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
 import { withBase } from '../utils/url';
 ---
@@ -7,36 +7,36 @@ import { withBase } from '../utils/url';
 
   <main class="bg-alcasa-light text-alcasa-dark min-h-screen overflow-hidden">
 
-    <!-- ══════════════════════════════════════════════════════════════
+    {/* ══════════════════════════════════════════════════════════════
          HERO · Parallax
-    ═══════════════════════════════════════════════════════════════ -->
+    ═══════════════════════════════════════════════════════════════ */}
     <section
       class="relative w-full h-[70vh] min-h-[540px] flex items-center justify-center bg-fixed bg-center bg-cover"
       style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop');"
     >
-      <div class="absolute inset-0 bg-alcasa-dark/85 mix-blend-multiply"></div>
+      <div class="absolute inset-0 bg-alcasa-dark mix-blend-multiply"></div>
 
-      <!-- Brillos sutiles tipo MisionVisionSection -->
-      <div class="absolute -left-24 top-1/3 w-72 h-72 bg-alcasa-green/25 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -right-24 bottom-1/4 w-80 h-80 bg-alcasa-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Brillos sutiles tipo MisionVisionSection */}
+      {/* <div class="absolute -left-24 top-1/3 w-72 h-72 bg-alcasa-green/25 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -right-24 bottom-1/4 w-80 h-80 bg-alcasa-orange/20 rounded-full blur-3xl pointer-events-none"></div> */}
 
       <div class="relative z-10 text-center px-6 max-w-4xl mx-auto reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out">
 
-        <span class="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-alcasa-green/60 bg-alcasa-green/15 text-alcasa-green text-xs font-bold tracking-[0.25em] uppercase backdrop-blur-sm">
-          <span class="w-1.5 h-1.5 bg-alcasa-green rounded-full"></span>
+        <span class="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-alcasa-green/60 bg-alcasa-green/15 text-alcasa-green text-xl font-bold tracking-[0.25em] uppercase backdrop-blur-sm">
+          {/* <span class="w-1.5 h-1.5 bg-alcasa-green rounded-full"></span> */}
           Portafolio ALCASA
         </span>
 
-        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.05] drop-shadow-lg">
-          Nuestros <span class="text-alcasa-green">Servicios</span>
+        <h1 class="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-[1.05] drop-shadow-lg">
+          Catálogo de Servicios
         </h1>
 
-        <p class="text-lg md:text-xl text-gray-200/90 max-w-2xl mx-auto font-light leading-relaxed">
-          Soluciones logísticas integrales para el manejo, almacenaje y acondicionamiento de su inventario agroindustrial en El Salvador.
+        <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-light leading-relaxed">
+          Soluciones integrales de logística para el manejo y almacenamiento de graneles sólidos y carga general, a través de nuestras facilidades en el puerto marítimo de Acajutla.
         </p>
 
-        <!-- Tira inferior: 4 áreas operativas -->
-        <div class="mt-12 hidden md:flex items-center justify-center gap-8 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-white/60">
+        {/* Tira inferior: 4 áreas operativas */}
+        {/* <div class="mt-12 hidden md:flex items-center justify-center gap-8 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-white/60">
           <span>Manejo</span>
           <span class="w-1 h-1 rounded-full bg-alcasa-orange"></span>
           <span>Almacenaje Fiscal</span>
@@ -44,36 +44,44 @@ import { withBase } from '../utils/url';
           <span>Cumplimiento</span>
           <span class="w-1 h-1 rounded-full bg-alcasa-orange"></span>
           <span>Acondicionamiento</span>
-        </div>
+        </div> */}
       </div>
 
-      <!-- Indicador de scroll -->
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-white/50">
-        <span class="text-[0.65rem] font-bold tracking-[0.3em] uppercase">Descubrir</span>
-        <span class="w-px h-10 bg-gradient-to-b from-white/50 to-transparent"></span>
-      </div>
+      {/* Indicador de scroll · clickeable */}
+      <a
+        href="#manejo"
+        id="scroll-down-cta"
+        aria-label="Ir a la primera sección"
+        class="group absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3 cursor-pointer z-20"
+      >
+        <span class="text-[0.7rem] font-bold tracking-[0.35em] uppercase text-white group-hover:text-alcasa-green transition-colors duration-300">
+          Descubrir
+        </span>
+
+        {/* Botón circular con chevron animado y halo pulsante */}
+        <span class="relative inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/45 bg-white/10 backdrop-blur-sm shadow-[0_10px_30px_-6px_rgba(120,171,44,0.45)] transition-all duration-300 group-hover:border-alcasa-green group-hover:bg-alcasa-green/25 group-hover:scale-110 group-hover:shadow-[0_15px_40px_-4px_rgba(120,171,44,0.7)]">
+          {/* Anillo sónar */}
+          <span class="absolute inset-0 rounded-full border border-alcasa-green/60 animate-ping pointer-events-none"></span>
+          {/* Chevron rebotando */}
+          <i class="bi bi-chevron-down text-white text-xl leading-none group-hover:text-alcasa-green transition-colors duration-300 animate-bounce"></i>
+        </span>
+      </a>
     </section>
 
-    <!-- ══════════════════════════════════════════════════════════════
+    {/* ══════════════════════════════════════════════════════════════
          SECCIÓN 01 · Manejo de Granel Sólidos (alternada)
-    ═══════════════════════════════════════════════════════════════ -->
+    ═══════════════════════════════════════════════════════════════ */}
     <section class="py-24 md:py-32 bg-alcasa-light relative" id="manejo">
 
-      <!-- Detalle decorativo de fondo -->
+      {/* Detalle decorativo de fondo */}
       <div class="absolute -left-20 top-20 w-64 h-64 bg-alcasa-green/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="container mx-auto px-6 max-w-7xl relative">
         <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
 
-          <!-- Imagen -->
+          {/* Imagen */}
           <div class="w-full md:w-1/2 reveal opacity-0 -translate-x-12 transition-all duration-1000 ease-out">
             <div class="relative">
-              <!-- Etiqueta numérica flotante -->
-              <div class="absolute -top-6 -left-2 md:-left-6 z-20 bg-white shadow-xl rounded-2xl px-5 py-3 border border-alcasa-green/20">
-                <p class="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-alcasa-green mb-0.5">Servicio · 01</p>
-                <p class="text-sm font-bold text-alcasa-dark tracking-tight">Manejo</p>
-              </div>
-
               <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] group">
                 <img
                   src={withBase('/images/warehouse-wheat.png')}
@@ -86,19 +94,19 @@ import { withBase } from '../utils/url';
             </div>
           </div>
 
-          <!-- Texto -->
+          {/* Texto */}
           <div class="w-full md:w-1/2 reveal opacity-0 translate-x-12 transition-all duration-1000 ease-out delay-200">
 
-            <div class="flex items-center gap-3 mb-5 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-green">
+            {/* <div class="flex items-center gap-3 mb-5 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-green">
               <span class="block w-8 h-px bg-alcasa-green"></span>
               <span>Recepción · Despacho · Transferencia</span>
-            </div>
+            </div> */}
 
-            <h2 class="text-4xl md:text-5xl font-bold text-alcasa-dark mb-6 tracking-tight leading-[1.05]">
-              Manejo de <span class="text-alcasa-green">Granel Sólidos</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-alcasa-dark mb-6 tracking-tight leading-[1.05]">
+              Manejo de Graneles Sólidos Limpios y Carga General
             </h2>
 
-            <p class="text-alcasa-dark/70 mb-8 leading-relaxed text-lg font-light">
+            <p class="text-alcasa-dark/70 mb-8 leading-relaxed text-md font-light">
               Recepción y despacho desde silos y bodegas. El producto es recibido en nuestras tolvas y elevadores a través de camiones de volteo o bandas transportadoras, con pesaje y registro de inventarios.
             </p>
 
@@ -110,7 +118,7 @@ import { withBase } from '../utils/url';
                 <div>
                   <h4 class="font-bold text-alcasa-dark mb-1">Recepción y Despacho</h4>
                   <p class="text-sm text-alcasa-dark/70 leading-relaxed">
-                    Custodia y movimiento desde nuestros silos y bodegas, con carga directa a camiones para distribución.
+                    Maquinaria especializada para estiba y desestiba en silos, bodegas y patios abiertos.
                   </p>
                 </div>
               </li>
@@ -132,24 +140,20 @@ import { withBase } from '../utils/url';
       </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════════════════════
+    {/* ══════════════════════════════════════════════════════════════
          SECCIÓN 02 · Almacenaje Fiscal (parallax verde)
-    ═══════════════════════════════════════════════════════════════ -->
+    ═══════════════════════════════════════════════════════════════ */}
     <section
       class="relative py-24 md:py-32 bg-fixed bg-center bg-cover overflow-hidden"
       style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070&auto=format&fit=crop');"
       id="almacenaje-fiscal"
     >
-      <!-- Capa verde con leve gradiente para más profundidad -->
+      {/* Capa verde con leve gradiente para más profundidad */}
       <div class="absolute inset-0 bg-gradient-to-br from-alcasa-green/95 via-alcasa-green/90 to-alcasa-green/95"></div>
-
-      <!-- Halos decorativos -->
-      <div class="absolute -right-20 -top-20 w-96 h-96 bg-alcasa-orange/15 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -left-20 -bottom-20 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="relative z-10 container mx-auto px-6 max-w-7xl">
 
-        <!-- Cabecera de sección -->
+        {/* Cabecera de sección */}
         <div class="max-w-3xl mb-16 reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out">
           <span class="inline-flex items-center gap-3 mb-5 px-4 py-1.5 rounded-full border border-white/30 bg-white/10 text-white text-xs font-bold tracking-[0.25em] uppercase backdrop-blur-sm">
             <span class="w-1.5 h-1.5 bg-alcasa-orange rounded-full"></span>
@@ -157,15 +161,15 @@ import { withBase } from '../utils/url';
           </span>
 
           <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-[1.05]">
-            Almacenaje Fiscal y <span class="text-white">Cumplimiento</span>
+            Almacenaje Simple y Fiscal
           </h2>
 
           <p class="text-lg text-white/85 max-w-2xl leading-relaxed font-light">
-            Almacenaje en recinto fiscal de carácter público con respaldo total en custodia, administración aduanera y control fitosanitario, conforme a la legislación de El Salvador.
+            Almacenaje en recinto fiscal de carácter público bajo la supervisión de Aduana Marítima de Acajutla.
           </p>
         </div>
 
-        <!-- Grid de 3 cards -->
+        {/* Grid de 3 cards */}
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
           <article class="reveal opacity-0 translate-y-12 group bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-8 hover:bg-white/15 hover:-translate-y-1 hover:shadow-[0_25px_50px_-15px_rgba(0,0,0,0.35)] transition-all duration-500">
@@ -173,14 +177,9 @@ import { withBase } from '../utils/url';
               <i class="bi bi-shield-check text-xl leading-none"></i>
             </div>
 
-            <div class="flex items-center gap-2 mb-3 text-[0.65rem] font-bold tracking-[0.3em] uppercase text-alcasa-orange">
-              <span class="block w-6 h-px bg-alcasa-orange"></span>
-              <span>Custodia</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-white mb-3 tracking-tight">Custodia y Administración</h3>
+            <h3 class="text-xl font-bold text-white mb-3 tracking-tight">Administración de Inventarios</h3>
             <p class="text-sm text-white/80 leading-relaxed font-light">
-              Resguardo y administración integral de inventarios de carga graneles sólidos o carga general, bajo recinto fiscal público.
+              Resguardo y administración integral de carga graneles sólidos limpios y carga general.
             </p>
           </article>
 
@@ -189,14 +188,9 @@ import { withBase } from '../utils/url';
               <i class="bi bi-file-earmark-check text-xl leading-none"></i>
             </div>
 
-            <div class="flex items-center gap-2 mb-3 text-[0.65rem] font-bold tracking-[0.3em] uppercase text-alcasa-orange">
-              <span class="block w-6 h-px bg-alcasa-orange"></span>
-              <span>Aduanal</span>
-            </div>
-
             <h3 class="text-xl font-bold text-white mb-3 tracking-tight">Emisión de Fianza</h3>
             <p class="text-sm text-white/80 leading-relaxed font-light">
-              Garantía para el pago de impuestos de internación, conforme a la legislación aduanera vigente en El Salvador.
+              Emisión de fianza para garantizar pago de impuestos conforme a la legislación aduanera vigente en El Salvador.
             </p>
           </article>
 
@@ -205,14 +199,9 @@ import { withBase } from '../utils/url';
               <i class="bi bi-droplet-half text-xl leading-none"></i>
             </div>
 
-            <div class="flex items-center gap-2 mb-3 text-[0.65rem] font-bold tracking-[0.3em] uppercase text-alcasa-orange">
-              <span class="block w-6 h-px bg-alcasa-orange"></span>
-              <span>Fitosanitario</span>
-            </div>
-
             <h3 class="text-xl font-bold text-white mb-3 tracking-tight">Tratamientos Cuarentenarios</h3>
             <p class="text-sm text-white/80 leading-relaxed font-light">
-              Fumigación, asperjado y termonebulizado para el control de plagas primarias y secundarias del producto.
+              Fumigación, asperjado y termonebulizado para el control de plagas primarias y de los graneles sólidos limpios.
             </p>
           </article>
 
@@ -220,28 +209,28 @@ import { withBase } from '../utils/url';
       </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════════════════════
+    {/* ══════════════════════════════════════════════════════════════
          SECCIÓN 03 · Acondicionamiento del Grano (grid de procesos)
-    ═══════════════════════════════════════════════════════════════ -->
+    ═══════════════════════════════════════════════════════════════ */}
     <section class="py-24 md:py-32 bg-white relative" id="acondicionamiento">
 
-      <!-- Decoraciones sutiles -->
+      {/* Decoraciones sutiles */}
       <div class="absolute right-0 top-40 w-80 h-80 bg-alcasa-green/5 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute left-10 bottom-20 w-72 h-72 bg-alcasa-orange/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="container mx-auto px-6 max-w-7xl relative">
 
-        <!-- Encabezado -->
+        {/* Encabezado */}
         <div class="mb-16 md:mb-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:items-end">
 
           <div class="lg:col-span-8 reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-            <span class="inline-flex items-center gap-3 mb-5 px-4 py-1.5 rounded-full border border-alcasa-orange/50 bg-alcasa-orange/10 text-alcasa-orange text-xs font-bold tracking-[0.25em] uppercase backdrop-blur-sm">
+            {/* <span class="inline-flex items-center gap-3 mb-5 px-4 py-1.5 rounded-full border border-alcasa-orange/50 bg-alcasa-orange/10 text-alcasa-orange text-xs font-bold tracking-[0.25em] uppercase backdrop-blur-sm">
               <span class="w-1.5 h-1.5 bg-alcasa-orange rounded-full"></span>
               Servicio · 03
-            </span>
+            </span> */}
 
             <h2 class="text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-alcasa-dark tracking-tight leading-[1.05]">
-              Acondicionamiento del <span class="text-alcasa-orange">Grano</span>
+              Otros Servicios <span class="text-alcasa-orange">Relacionados</span>
             </h2>
 
             <p class="mt-6 text-lg text-alcasa-dark/70 font-light leading-relaxed max-w-2xl">
@@ -252,70 +241,70 @@ import { withBase } from '../utils/url';
           <div class="lg:col-span-4 lg:justify-self-end reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-[150ms]">
             <div class="inline-flex items-center gap-4 text-sm font-semibold text-alcasa-dark border border-alcasa-dark/20 px-6 py-4 rounded-xl bg-white/40 backdrop-blur-sm whitespace-nowrap">
               <span class="w-2 h-2 rounded-full bg-alcasa-green animate-pulse"></span>
-              <span>3 procesos integrados</span>
+              <span>procesos integrados</span>
             </div>
           </div>
 
         </div>
 
-        <!-- Grid de cards (mismo lenguaje que ServicesSection) -->
+        {/* Grid de cards (mismo lenguaje que ServicesSection) */}
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-          <!-- Prelimpia -->
+          {/* Prelimpia */}
           <article class="group reveal opacity-0 translate-y-12 relative bg-alcasa-light rounded-2xl p-8 border border-gray-100 hover:border-alcasa-green/40 hover:shadow-[0_25px_50px_-15px_rgba(120,171,44,0.25)] hover:-translate-y-1 transition-all duration-700 ease-out overflow-hidden">
             <div class="relative z-10 flex flex-col h-full min-h-[320px]">
 
               <div class="flex items-center gap-3 mb-6 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-green">
                 <span class="block w-8 h-px bg-alcasa-green"></span>
-                <span>Proceso · 01</span>
+                <span>Prelimpia</span>
               </div>
 
               <div class="w-14 h-14 bg-alcasa-green/10 rounded-xl flex items-center justify-center mb-6 text-alcasa-green group-hover:scale-105 group-hover:bg-alcasa-green group-hover:text-white transition-all duration-500">
                 <i class="bi bi-funnel text-2xl leading-none"></i>
               </div>
 
-              <h3 class="text-2xl font-bold text-alcasa-dark mb-3 tracking-tight">Prelimpia</h3>
-              <p class="text-alcasa-dark/70 font-light leading-relaxed">
-                Cribado del producto a granel para retirar impurezas y materias extrañas presentes en los cereales desde origen.
+              {/* <h3 class="text-2xl font-bold text-alcasa-dark mb-3 tracking-tight">Prelimpia</h3> */}
+              <p class="text-alcasa-dark/70 font-normal leading-relaxed">
+                Cribado de los graneles sólidos (cereales) para retirar impurezas y materias extrañas de origen.
               </p>
 
               <div class="mt-auto pt-8 border-t border-dashed border-alcasa-dark/15">
                 <p class="text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/50 mb-1">Resultado</p>
                 <p class="text-base font-bold text-alcasa-dark tracking-tight leading-snug">
-                  Cereal limpio · Listo para almacenaje
+                  Cereal limpio · Listo para almacenaje o Despacho
                 </p>
               </div>
             </div>
           </article>
 
-          <!-- Envasado -->
+          {/* Envasado */}
           <article class="group reveal opacity-0 translate-y-12 relative bg-alcasa-light rounded-2xl p-8 border border-gray-100 hover:border-alcasa-orange/40 hover:shadow-[0_25px_50px_-15px_rgba(230,126,0,0.25)] hover:-translate-y-1 transition-all duration-700 ease-out delay-[100ms] overflow-hidden">
             <div class="relative z-10 flex flex-col h-full min-h-[320px]">
 
               <div class="flex items-center gap-3 mb-6 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-orange">
                 <span class="block w-8 h-px bg-alcasa-orange"></span>
-                <span>Proceso · 02</span>
+                <span>Envasado</span>
               </div>
 
               <div class="w-14 h-14 bg-alcasa-orange/10 rounded-xl flex items-center justify-center mb-6 text-alcasa-orange group-hover:scale-105 group-hover:bg-alcasa-orange group-hover:text-white transition-all duration-500">
                 <i class="bi bi-box-seam text-2xl leading-none"></i>
               </div>
 
-              <h3 class="text-2xl font-bold text-alcasa-dark mb-3 tracking-tight">Envasado</h3>
-              <p class="text-alcasa-dark/70 font-light leading-relaxed">
+              {/* <h3 class="text-2xl font-bold text-alcasa-dark mb-3 tracking-tight">Envasado</h3> */}
+              <p class="text-alcasa-dark/70 font-normal leading-relaxed">
                 Empaquetado de graneles sólidos para despacho empacado, asegurando integridad del producto durante el transporte.
               </p>
 
               <div class="mt-auto pt-8 border-t border-dashed border-alcasa-dark/15">
                 <p class="text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/50 mb-1">Formato</p>
                 <p class="text-base font-bold text-alcasa-dark tracking-tight leading-snug">
-                  Despacho empacado a medida
+                  Despacho empacado a requerimiento del cliente
                 </p>
               </div>
             </div>
           </article>
 
-          <!-- Molienda (card oscura · destacada) -->
+          {/* Molienda (card oscura · destacada) */}
           <article class="group reveal opacity-0 translate-y-12 relative bg-alcasa-dark text-alcasa-light rounded-2xl p-8 hover:-translate-y-1 hover:shadow-[0_30px_60px_-15px_rgba(73,73,75,0.55)] transition-all duration-700 ease-out delay-[200ms] overflow-hidden">
 
               <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-alcasa-orange/25 rounded-full blur-3xl group-hover:bg-alcasa-orange/35 transition-colors duration-700 pointer-events-none"></div>
@@ -325,15 +314,15 @@ import { withBase } from '../utils/url';
 
                 <div class="flex items-center gap-3 mb-6 text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-green">
                   <span class="block w-8 h-px bg-alcasa-green"></span>
-                  <span>Proceso · 03</span>
+                  <span>Molienda</span>
                 </div>
 
                 <div class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-6 text-alcasa-green border border-white/15 backdrop-blur-sm group-hover:scale-105 group-hover:bg-white/15 transition-all duration-500">
                   <i class="bi bi-gear-wide-connected text-2xl leading-none"></i>
                 </div>
 
-                <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Molienda</h3>
-                <p class="text-gray-300 font-light leading-relaxed">
+                {/* <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Molienda</h3> */}
+                <p class="text-gray-300 font-normal leading-relaxed">
                   Conversión de grano entero en fraccionado, según especificación comercial del cliente y tamaño de criba requerido.
                 </p>
 
@@ -352,7 +341,7 @@ import { withBase } from '../utils/url';
 
   </main>
 
-  <!-- Semilla: fuerza a Tailwind a incluir clases que se añaden por JS -->
+  {/* Semilla: fuerza a Tailwind a incluir clases que se añaden por JS */}
   <div class="hidden opacity-100 translate-y-0 translate-x-0"></div>
 
   <script>
@@ -378,6 +367,21 @@ import { withBase } from '../utils/url';
       });
 
       reveals.forEach(reveal => observer.observe(reveal));
+
+      // Scroll suave del indicador "Descubrir" compensando el navbar fijo
+      const scrollCta = document.getElementById('scroll-down-cta');
+      if (scrollCta) {
+        scrollCta.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetSelector = scrollCta.getAttribute('href');
+          if (!targetSelector) return;
+          const target = document.querySelector(targetSelector);
+          if (!target) return;
+          const navOffset = 80;
+          const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        });
+      }
     });
   </script>
 
