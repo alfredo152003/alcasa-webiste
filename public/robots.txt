@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alfredo152003.github.io/Alcasa-Webiste/sitemap-index.xml

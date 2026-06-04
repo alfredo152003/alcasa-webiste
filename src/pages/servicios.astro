@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { withBase } from '../utils/url';
 ---
 
-<Layout title="Nuestros Servicios | ALCASA El Salvador">
+<Layout title="Servicios de Almacenaje Fiscal y Manejo de Graneles Sólidos | ALCASA" description="Manejo, almacenaje fiscal y acondicionamiento de graneles sólidos en el Puerto de Acajutla. Prelimpia, envasado, molienda, tratamientos cuarentenarios y administración de inventarios.">
 
   <main class="bg-alcasa-light text-alcasa-dark min-h-screen overflow-hidden">
 
@@ -12,7 +12,9 @@ import { withBase } from '../utils/url';
     ═══════════════════════════════════════════════════════════════ */}
     <section
       class="relative w-full h-[70vh] min-h-[540px] flex items-center justify-center bg-fixed bg-center bg-cover"
-      style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop');"
+      style={`background-image: url('${withBase('/images/bodega-industrial.jpg')}');`}
+      role="img"
+      aria-label="Vista aérea de instalaciones industriales de almacenamiento"
     >
       <div class="absolute inset-0 bg-alcasa-dark mix-blend-multiply"></div>
 
@@ -145,7 +147,9 @@ import { withBase } from '../utils/url';
     ═══════════════════════════════════════════════════════════════ */}
     <section
       class="relative py-24 md:py-32 bg-fixed bg-center bg-cover overflow-hidden"
-      style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070&auto=format&fit=crop');"
+      style={`background-image: url('${withBase('/images/granos-cereal.jpg')}');`}
+      role="img"
+      aria-label="Vista de graneles sólidos en instalación de almacenamiento"
       id="almacenaje-fiscal"
     >
       {/* Capa verde con leve gradiente para más profundidad */}

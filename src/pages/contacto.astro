@@ -1,8 +1,9 @@
 ﻿---
 import Layout from '../layouts/Layout.astro';
+import { withBase } from '../utils/url';
 ---
 
-<Layout title="Contacto | ALCASA El Salvador">
+<Layout title="Contacto — ALCASA | Almacenadora en Acajutla, El Salvador" description="Contacte a ALCASA. Atención comercial en oficina central y planta Acajutla. Teléfonos, correo electrónico y ubicación en el recinto fiscal de Acajutla, Sonsonate, El Salvador.">
 
   <main class="bg-alcasa-light text-alcasa-dark min-h-screen overflow-hidden">
 
@@ -11,7 +12,9 @@ import Layout from '../layouts/Layout.astro';
     ═══════════════════════════════════════════════════════════════ */}
     <section
       class="relative w-full h-[60vh] min-h-[480px] flex items-center justify-center bg-fixed bg-center bg-cover"
-      style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop');"
+      style={`background-image: url('${withBase('/images/bodega-industrial.jpg')}');`}
+      role="img"
+      aria-label="Vista aérea de instalaciones de ALCASA en Acajutla"
     >
       <div class="absolute inset-0 bg-alcasa-dark mix-blend-multiply"></div>
 
@@ -119,7 +122,7 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             {/*
-            {/* Card · ubicación */}
+            <!-- Card · ubicación -->
             <div class="bg-white rounded-2xl border border-gray-100 p-6 hover:border-alcasa-green/40 hover:shadow-[0_15px_35px_-12px_rgba(120,171,44,0.2)] transition-all duration-500">
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 rounded-xl bg-alcasa-green/10 flex items-center justify-center text-alcasa-green flex-shrink-0">
@@ -137,7 +140,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
 
-            {/* Card · horario */}
+            <!-- Card · horario -->
             <div class="bg-white rounded-2xl border border-gray-100 p-6 hover:border-alcasa-orange/40 hover:shadow-[0_15px_35px_-12px_rgba(230,126,0,0.2)] transition-all duration-500">
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 rounded-xl bg-alcasa-orange/10 flex items-center justify-center text-alcasa-orange flex-shrink-0">
@@ -153,7 +156,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
 
-            {/* Card · capacidad (stat) */}
+            <!-- Card · capacidad (stat) -->
             <div class="rounded-2xl border border-dashed border-alcasa-dark/20 bg-white/60 backdrop-blur-sm p-6">
               <p class="text-[0.7rem] font-bold tracking-[0.25em] uppercase text-alcasa-dark/55 mb-2">Capacidad instalada</p>
               <p class="text-3xl md:text-4xl font-bold text-alcasa-dark tabular-nums tracking-tight leading-none">

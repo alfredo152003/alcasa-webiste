@@ -1,8 +1,9 @@
 ﻿---
 import Layout from '../layouts/Layout.astro';
+import { withBase } from '../utils/url';
 ---
 
-<Layout title="Nuestras Instalaciones | ALCASA El Salvador">
+<Layout title="Instalaciones: Silos, Bodegas y Patios | ALCASA Acajutla" description="44,000 tm en silos de concreto, 100,000 tm en bodegas techadas y 25,000 m² en patios abiertos. Infraestructura portuaria en Acajutla, El Salvador.">
   <main class="bg-alcasa-light text-alcasa-dark min-h-screen overflow-hidden">
 
     {/* ══════════════════════════════════════════════════════════════
@@ -168,7 +169,7 @@ import Layout from '../layouts/Layout.astro';
     {/* ══════════════════════════════════════════════════════════════
          SECCIÓN 02 · Intermedio parallax · Bodegas
     ═══════════════════════════════════════════════════════════════ */}
-    <section class="relative py-24 bg-fixed bg-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop');">
+    <section class="relative py-24 bg-fixed bg-center bg-cover" style={`background-image: url('${withBase('/images/bodega-industrial.jpg')}');`} role="img" aria-label="Instalaciones de bodegas industriales">
       <div class="absolute inset-0 bg-alcasa-dark mix-blend-multiply"></div>
 
       <div class="relative z-10 container mx-auto px-6 text-center text-white reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out">
