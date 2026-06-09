@@ -1,34 +1,93 @@
----
-import MisionVisionCard from "./MisionVisionCard.astro";
----
-
-<section class="py-24 bg-alcasa-light relative overflow-hidden" id="identidad-corporativa">
+<section
+  id="identidad-corporativa"
+  class="relative py-14 md:py-20 bg-alcasa-light overflow-hidden"
+>
 
   <div class="container mx-auto px-6 max-w-7xl relative z-10">
-    
-    <div class="mb-16 reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-      <span class="mb-5 px-4 py-1.5 rounded-full border border-alcasa-orange/50 bg-alcasa-orange/10 text-alcasa-orange text-xl font-bold tracking-wider uppercase backdrop-blur-sm">
-        Filosofía ALCASA
-      </span>
-      <h2 class="text-4xl md:text-3xl font-bold text-alcasa-dark tracking-tight mt-15">Identidad Corporativa</h2>
+
+    {/* Encabezado */}
+    <div class="max-w-3xl mb-10 md:mb-12 reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+      <div class="flex items-center gap-3 mb-6 text-[0.7rem] font-bold tracking-[0.35em] uppercase text-alcasa-orange">
+        <span class="block w-10 h-px bg-alcasa-orange"></span>
+        Filosofía · ALCASA
+      </div>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-alcasa-dark tracking-tight leading-[1.05]">
+        Identidad
+        <em class="italic font-normal text-alcasa-orange">Corporativa</em>
+      </h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <MisionVisionCard 
-            title="Misión" 
-            description="Brindar servicios con estándares de calidad en el manejo de cereales y otras cargas, aplicando nuestro código de ética en los procesos de manera eficiente permitiendo la rentabilidad en cada servicio."
-            type="mission"
-        />
+    {/* Misión + Visión */}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16">
 
-        <MisionVisionCard 
-            title="Visión" 
-            description="Mantener el liderazgo del manejo en las importaciones de cereales que llegan a través del puerto de Acajutla."
-            type="vision"
-        />
+      {/* MISIÓN — Card oscura */}
+      <article class="reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-[200ms] group relative bg-alcasa-dark rounded-3xl p-8 md:p-10 lg:p-12 overflow-hidden text-white">
+
+        {/* Glows internos */}
+        <div class="absolute -top-24 -right-24 w-[28rem] h-[20rem] bg-alcasa-green/22 rounded-[50%] blur-[110px] rotate-12 group-hover:bg-alcasa-green/30 transition-colors duration-700 pointer-events-none"></div>
+        <div class="absolute -bottom-32 -left-32 w-[26rem] h-[18rem] bg-alcasa-orange/15 rounded-[50%] blur-[120px] -rotate-12 group-hover:bg-alcasa-orange/22 transition-colors duration-700 pointer-events-none"></div>
+
+        {/* Línea acento superior */}
+        <span class="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-alcasa-green/0 via-alcasa-green/70 to-alcasa-green/0"></span>
+
+        <div class="relative z-10 flex flex-col h-full">
+
+          {/* Eyebrow */}
+          <div class="flex items-center gap-3 mb-8 text-[0.7rem] font-bold tracking-[0.35em] uppercase text-alcasa-green">
+            <span class="block w-8 h-px bg-alcasa-green"></span>
+            Misión · Política de Calidad
+          </div>
+
+          {/* Icono */}
+          <div class="inline-flex items-center justify-center w-14 h-14 mb-7 rounded-2xl bg-white/8 border border-white/15 backdrop-blur-sm shadow-inner shadow-white/5">
+            <i class="bi bi-patch-check text-2xl leading-none text-alcasa-green"></i>
+          </div>
+
+          {/* Comilla decorativa */}
+          <div class="text-[5rem] font-bold text-alcasa-green/25 leading-none mb-1 select-none -ml-1" aria-hidden="true">&ldquo;</div>
+
+          {/* Cita */}
+          <p class="text-base md:text-[1.05rem] lg:text-lg leading-[1.7] text-white/85 font-light text-balance italic">
+            ALCASA se compromete a brindar a sus usuarios un servicio especializado en el manejo y almacenaje de cereales y graneles, así como mercaderías en general, con estándares de calidad y eficiencia definidos que satisfagan las necesidades de nuestros clientes y contribuyan a su competitividad, permitiendo la rentabilidad de nuestra empresa, con el compromiso de someter nuestros procesos a la <span class="not-italic font-semibold text-alcasa-green">mejora continua</span>.
+          </p>
+
+        </div>
+      </article>
+
+      {/* VISIÓN — Card clara */}
+      <article class="reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-[400ms] group relative bg-white rounded-3xl p-8 md:p-10 lg:p-12 overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-shadow">
+
+        <div class="relative z-10 flex flex-col h-full">
+
+          {/* Eyebrow */}
+          <div class="flex items-center gap-3 mb-8 text-[0.7rem] font-bold tracking-[0.35em] uppercase text-alcasa-orange">
+            <span class="block w-8 h-px bg-alcasa-orange"></span>
+            Hacia dónde vamos
+          </div>
+
+          {/* Icono */}
+          <div class="inline-flex items-center justify-center w-14 h-14 mb-7 rounded-2xl bg-alcasa-orange/8 border border-alcasa-orange/20">
+            <i class="bi bi-compass text-2xl leading-none text-alcasa-orange"></i>
+          </div>
+
+          {/* Titular */}
+          <h3 class="text-2xl md:text-3xl font-bold text-alcasa-dark tracking-tight leading-[1.15] mb-5">
+            Visión
+          </h3>
+
+          {/* Cuerpo */}
+          <p class="text-base md:text-[1.05rem] leading-[1.7] text-alcasa-dark font-light text-balance">
+            Crecimiento continuo en volumen y rentabilidad a través de la diversificación de cartera de clientes y servicios.
+          </p>
+
+        </div>
+      </article>
+
     </div>
 
-    <div class="mb-12 reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-[400ms]">
-      <div class="text-center mb-8">
+    {/* Valores */}
+    <div class="reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-[400ms]">
+      <div class="text-center mb-6">
         <h3 class="text-2xl font-bold text-alcasa-dark">Valores Corporativos</h3>
       </div>
       
@@ -51,49 +110,23 @@ import MisionVisionCard from "./MisionVisionCard.astro";
       </div>
     </div>
 
-    <div class="bg-alcasa-dark rounded-3xl p-8 md:p-12 text-white shadow-xl relative overflow-hidden reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-[600ms] group">
-      
-      <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-alcasa-green/20 rounded-full blur-3xl group-hover:bg-alcasa-green/30 transition-colors duration-700 pointer-events-none"></div>
-      <div class="absolute -left-10 -top-10 w-48 h-48 bg-alcasa-orange/20 rounded-full blur-3xl group-hover:bg-alcasa-orange/30 transition-colors duration-700 pointer-events-none"></div>
-      
-      <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center md:items-start">
-        <div class="shrink-0 bg-white/10 p-4 rounded-2xl border border-white/20 backdrop-blur-sm">
-            <i class="bi bi-patch-check text-4xl text-alcasa-green"></i>
-        </div>
-        <div>
-          <h3 class="text-3xl font-bold text-white mb-4">Política de Calidad</h3>
-          <p class="text-gray-300 leading-relaxed text-lg font-light text-balance italic">
-            "ALCASA se dedica a brindar servicios de manejo de cereales, harinas y otros tipos de carga comprometiéndose a satisfacer los requerimientos de los clientes."
-          </p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const reveals = document.querySelectorAll('.reveal');
+    const reveals = document.querySelectorAll('#identidad-corporativa .reveal');
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Quita las clases que ocultan el elemento
           entry.target.classList.remove('opacity-0', 'translate-y-12', 'translate-y-8');
-          // Añade la clase que lo hace visible
           entry.target.classList.add('opacity-100', 'translate-y-0');
-          // Deja de observar para que la animación no se repita
           observer.unobserve(entry.target);
         }
       });
-    }, {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.15 
-    });
+    }, { root: null, rootMargin: '0px', threshold: 0.15 });
 
-    reveals.forEach(reveal => {
-      observer.observe(reveal);
-    });
+    reveals.forEach((el) => observer.observe(el));
   });
 </script>

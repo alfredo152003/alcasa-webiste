@@ -16,21 +16,14 @@ const navLinks = [
 
 <nav id="main-nav" class="fixed w-full z-50 top-0 start-0 border-b border-transparent transition-all duration-300 bg-alcasa-green py-2">
   <div class="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
-    
+
     <a href={withBase('/')} class="flex items-center gap-3 rtl:space-x-reverse group">
-      <span class="relative block w-11 h-11 shrink-0">
+      <span class="block shrink-0">
         <img
-          id="logo-white"
-          src={withBase('/logotipo.svg')}
+          id="logo"
+          src={withBase('/logo.svg')}
           alt="ALCASA"
-          class="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 opacity-100"
-        />
-        <img
-          id="logo-color"
-          src={withBase('/logotipo_color.svg')}
-          alt=""
-          aria-hidden="true"
-          class="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 opacity-0"
+          class="logo-white h-12 w-auto object-contain group-hover:scale-105"
         />
       </span>
       <span id="logo-text" class="self-center text-2xl font-bold whitespace-nowrap text-white tracking-tight transition-colors duration-300">ALCASA</span>
@@ -65,11 +58,23 @@ const navLinks = [
   </div>
 </nav>
 
+<style>
+  /* Un solo logo.svg que se recolorea según el navbar:
+     - .logo-white: blanco (sobre navbar verde, arriba)
+     - sin clase: colores naturales (sobre navbar blanco, scrolleado) */
+  #logo {
+    transition: filter 300ms ease, transform 300ms ease;
+  }
+  #logo.logo-white {
+    /* Blanco (sobre navbar verde) */
+    filter: brightness(0) invert(1);
+  }
+</style>
+
 <script>
   const navbar    = document.getElementById('main-nav');
   const logoText  = document.getElementById('logo-text');
-  const logoWhite = document.getElementById('logo-white');
-  const logoColor = document.getElementById('logo-color');
+  const logo      = document.getElementById('logo');
   const menuBtn   = document.getElementById('menu-btn');
   const activeLinks = document.querySelectorAll('.active-link');
   const navLinks    = document.querySelectorAll('.nav-link');
@@ -87,11 +92,8 @@ const navLinks = [
       logoText.classList.replace('text-white', 'text-alcasa-dark');
       menuBtn.classList.replace('text-white', 'text-gray-500');
 
-      // Logo: blanco → color
-      if (logoWhite && logoColor) {
-        logoWhite.classList.replace('opacity-100', 'opacity-0');
-        logoColor.classList.replace('opacity-0', 'opacity-100');
-      }
+      // Logo: blanco → colores naturales
+      if (logo) logo.classList.remove('logo-white');
 
       // Link activo en modo scrolleado: verde en lugar de blanco
       activeLinks.forEach(link => {
@@ -114,11 +116,8 @@ const navLinks = [
       logoText.classList.replace('text-alcasa-dark', 'text-white');
       menuBtn.classList.replace('text-gray-500', 'text-white');
 
-      // Logo: color → blanco
-      if (logoWhite && logoColor) {
-        logoWhite.classList.replace('opacity-0', 'opacity-100');
-        logoColor.classList.replace('opacity-100', 'opacity-0');
-      }
+      // Logo: colores naturales → blanco
+      if (logo) logo.classList.add('logo-white');
 
       // Link activo en modo top: blanco
       activeLinks.forEach(link => {
